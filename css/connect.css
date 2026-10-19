@@ -6,7 +6,7 @@
 .nav-connect:focus-visible{outline:none;background:#fff;color:#07090f;text-decoration:underline;text-underline-offset:4px}
 .nav-connect.busy{opacity:.75;cursor:progress}
 .nav-connect[hidden],.nav-acct[hidden]{display:none!important}
-@media (min-width:880px){.nav-connect{display:inline-flex}}
+@media (min-width:960px){.nav-connect{display:inline-flex}}
 
 .nav-acct{display:inline-flex;align-items:center;gap:10px;min-height:44px;max-width:220px;padding:0 10px 0 4px;font:600 13px/1 var(--nav);letter-spacing:.06em;color:var(--ink);background:rgba(239,236,227,.06);border:1px solid var(--line);cursor:pointer;clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%);transition:background .16s,border-color .16s}
 .nav-acct img{width:30px;height:30px;border-radius:50%;flex:none;box-shadow:0 0 0 1.5px #e7b53a}
