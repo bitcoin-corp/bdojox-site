@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/connect.css">
 <style>
 :root{
   --bg:#07090f;--panel:#0d1019;--ink:#efece3;--muted:#a9abb8;--dim:#8a8c9b;
@@ -467,5 +468,6 @@ if(on){try{if(v&&v.currentTime)a.currentTime=v.currentTime;await a.play()}catch(
 if(v){v.addEventListener('timeupdate',()=>{if(on)sync()});v.addEventListener('seeked',()=>{if(on)a.currentTime=v.currentTime})}
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&on)a.pause();else if(on)a.play().catch(()=>{})});})();
 </script>
+<script type="module" src="/js/connect.js"></script>
 </body>
 </html>

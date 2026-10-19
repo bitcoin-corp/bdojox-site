@@ -1,0 +1,13 @@
+{
+  "name": "bdojox-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bundle": "esbuild src/connect.ts --bundle --splitting --format=esm --minify --target=es2020 --outdir=js --entry-names=[name] --chunk-names=connect-[hash] --legal-comments=none",
+    "dev:api": "node scripts/dev.mjs"
+  },
+  "dependencies": {
+    "@bsv/sdk": "^2.8.11",
+    "@bwalletx/connect": "0.5.0"
+  }
+}
