@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 304 56" role="img" aria-label="bDojoX">
+  <!-- Latin letters drawn in katakana strokes: b≈ヒ, D≈ワ, O≈ロ, J≈フ, X≈メ. -->
+  <g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M8 2 L6 44 L34 44 M6 22 L32 17 L30 42"/>
+    <path d="M56 6 L56 44 M64 4 L88 4 L84 30 Q80 42 64 46"/>
+    <path d="M104 6 L136 6 L136 44 L104 44 L104 12"/>
+    <path d="M154 6 L186 6 Q184 34 160 46"/>
+    <path d="M204 6 L236 6 L236 44 L204 44 L204 12"/>
+    <path d="M256 6 Q272 24 290 46 M288 4 Q274 30 254 44"/>
+  </g>
+  <path d="M286 4 Q272 30 252 44" fill="none" stroke="#e0262f" stroke-width="6" stroke-linecap="square"/>
+</svg>
