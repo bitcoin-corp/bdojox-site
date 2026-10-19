@@ -70,7 +70,7 @@ const svg = (vb, body, extra = '') => `<svg xmlns="http://www.w3.org/2000/svg" v
 function wordmark({ mono = false, cap = 80, x0 = 0, y0 = 0 } = {}) {
   const size = cap / (arch.tables.os2.sCapHeight / arch.unitsPerEm), tr = size * .075; let x = x0, body = '', cid = 'wx' + (++sid);
   const base = y0 + cap, ink = mono ? '#fff' : C.ink; let right = 0;
-  for (const ch of 'BDOJOX') {
+  for (const ch of 'bDOJOX') { // lowercase b = bApps family
     const g = arch.charToGlyph(ch), adv = g.advanceWidth * size / arch.unitsPerEm, d = g.getPath(x, base, size).toPathData(2);
     if (ch === 'X') {
       if (mono) body += `<path d="${d}" fill="#fff"/>`;
@@ -89,7 +89,7 @@ W('logo.svg', svg('0 0 200 200', mark({ id: 'a' }), ' role="img" aria-label="bDo
 W('logo-mono.svg', svg('0 0 200 200', mark({ mono: true }), ' role="img" aria-label="bDojoX"'));
 W('logo-hero.svg', svg('0 0 200 200', `<ellipse cx="100" cy="150" rx="46" ry="5" fill="#000" fill-opacity=".35"/>${mark({ id: 'h' })}`, ' role="img" aria-label="bDojoX"'));
 W('logo-lockup.svg', lockup(false)); W('logo-lockup-mono.svg', lockup(true));
-{ const wm = wordmark({ cap: 80, x0: 2, y0: 2 }), wmm = wordmark({ cap: 80, x0: 2, y0: 2, mono: true }); W('wordmark.svg', svg(`0 0 ${f(wm.w + 6)} 84`, wm.body, ' role="img" aria-label="bDojoX"')); W('wordmark-mono.svg', svg(`0 0 ${f(wm.w + 6)} 84`, wmm.body, ' role="img" aria-label="bDojoX"')); }
+{ const wm = wordmark({ cap: 80, x0: 2, y0: 12 }), wmm = wordmark({ cap: 80, x0: 2, y0: 12, mono: true }); W('wordmark.svg', svg(`0 0 ${f(wm.w + 6)} 96`, wm.body, ' role="img" aria-label="bDojoX"')); W('wordmark-mono.svg', svg(`0 0 ${f(wm.w + 6)} 96`, wmm.body, ' role="img" aria-label="bDojoX"')); }
 // ---------- tiles: combo candidates (B's red 道 seal tile + torii)
 function tileSeal(id) { const gp = glyphPath(shi, '道', 156, 100, 104); return `<defs><mask id="${id}"><rect width="200" height="200" fill="#fff"/><path d="${gp}" fill="#000"/></mask></defs><rect x="12" y="12" width="176" height="176" rx="22" fill="${C.red}" mask="url(#${id})"/>`; }
 const T = {
