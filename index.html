@@ -14,17 +14,18 @@
 <meta property="og:image" content="https://bdojox.com/og-bdojox.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="bDojoX: a launchpad for startups, on chain. A red and blue torii gate with a belt that moves from white to black.">
+<meta property="og:image:alt" content="bDojoX: a launchpad for startups, on chain. A red and blue torii gate inside a white brush ensō, with a red 道 seal stamped at the lower right.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="bDojoX · A launchpad for startups, on chain">
 <meta name="twitter:description" content="bDojoX is a launchpad for startups on chain: form your company, raise in BSV and MNEE, and keep your shares as registered tokens. Your register, mirrored on chain and held in your shareholders' own wallets, locked 2-of-2.">
 <meta name="twitter:image" content="https://bdojox.com/og-bdojox.png">
 <meta name="theme-color" content="#07090f">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700..800&family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#07090f;--panel:#0d1019;--ink:#efece3;--muted:#a9abb8;--dim:#8a8c9b;
@@ -54,39 +55,45 @@ h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.015em
 .bwx-strip b{color:#ffd24d;font-weight:700}
 .bwx-strip .go{transition:transform .16s var(--ease)}
 .bwx-strip a:hover{color:var(--ink)}.bwx-strip a:hover .go{transform:translateX(3px)}
-/* nav: floating slanted glass bar (skew matches the logo's 14deg lean) */
+/* nav: clean glass header over the film; slash-cut accents (parallelogram marks at the lockup's 14deg lean) */
+:root{--nav:'Archivo','IBM Plex Sans',system-ui,sans-serif;--navh:72px}
 .skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--ink);color:#07090f;font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:14px 18px;text-decoration:none;transition:top .16s var(--ease)}
 .skip:focus{top:12px}
-.site-nav{position:sticky;top:0;z-index:60;padding:10px calc(var(--pad) + 14px) 0;margin-bottom:10px;pointer-events:none}
-.bar{--h:60px;position:relative;pointer-events:auto;max-width:1240px;margin:0 auto;height:var(--h);transform:skewX(-14deg);background:rgba(9,12,20,.5);-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);border:1px solid var(--line-hi);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 30px -12px rgba(0,0,0,.7);transition:height .2s var(--ease),background .2s,box-shadow .2s}
-.bar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:repeating-linear-gradient(-45deg,var(--red-fill) 0 6px,transparent 6px 12px);opacity:.9;pointer-events:none}
-.bar::before{content:"";position:absolute;left:-1px;top:-1px;width:48px;height:3px;background:var(--red);pointer-events:none}
-.bar-in{display:flex;align-items:center;gap:8px;height:100%;padding:0 12px 0 20px;transform:skewX(14deg)}
-.is-compact .bar{--h:50px;background:rgba(7,9,15,.78)}
+.site-nav{--h:var(--navh);position:sticky;top:0;z-index:60;height:var(--navh);margin-bottom:calc(var(--navh) * -1)}
+.site-nav::before{content:"";position:absolute;left:0;right:0;top:0;height:var(--h);background:linear-gradient(180deg,rgba(5,6,10,.72),rgba(5,6,10,.28));border-bottom:1px solid rgba(239,236,227,.12);transition:height .24s var(--ease),background .24s,box-shadow .24s;pointer-events:none}
+.site-nav.is-compact{--h:56px}
+.site-nav.is-compact::before{background:rgba(7,9,15,.74);-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);box-shadow:0 12px 32px -16px rgba(0,0,0,.8)}
+.nav-in{position:relative;display:flex;align-items:center;gap:clamp(12px,2vw,28px);height:var(--h);transition:height .24s var(--ease)}
+.nav-in::after{content:"";position:absolute;left:var(--pad);bottom:-1px;width:64px;height:3px;background:linear-gradient(90deg,var(--red) 0 62%,transparent 62% 70%,var(--blue) 70%);clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%);pointer-events:none}
+.nav-in{padding-left:var(--pad);padding-right:var(--pad)}.nav-in::after{left:var(--pad)}
 .brand{display:flex;align-items:center;text-decoration:none;flex:none;margin-right:auto}
-@media (min-width:880px){.brand{margin-right:0}}
-.brand img{display:block;height:34px;width:auto;transition:height .2s var(--ease)}
-.is-compact .brand img{height:28px}
-.nl{position:relative;display:none;align-items:center;gap:2px;margin:0 auto}
-.nl a{position:relative;display:flex;align-items:center;min-height:44px;padding:0 14px;font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--muted);white-space:nowrap;transition:color .16s}
-.nl a:hover,.nl a.on{color:var(--ink)}
-.nl a:focus-visible{outline-offset:-2px}
-.nl .ink{position:absolute;left:0;bottom:6px;height:2px;width:var(--w,0);background:var(--red);transform:translateX(var(--x,0));opacity:0;transition:transform .28s var(--ease),width .28s var(--ease),opacity .2s;pointer-events:none}
+.brand img{display:block;height:34px;width:auto;transition:height .24s var(--ease)}
+.is-compact .brand img{height:30px}
+.nl{position:relative;display:none;align-self:stretch;align-items:center;gap:2px;margin:0 auto}
+.nl a{position:relative;display:flex;align-items:center;min-height:44px;padding:0 15px;font:700 11.5px/1 var(--nav);font-stretch:125%;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:#b5b9c8;white-space:nowrap;transition:color .16s}
+.nl a:hover,.nl a.on{color:#fff}
+.nl a:focus-visible{outline-offset:-4px}
+.nl .ink{position:absolute;left:0;bottom:-1px;height:3px;width:var(--w,0);background:var(--red);clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);transform:translateX(var(--x,0));opacity:0;transition:transform .3s var(--ease),width .3s var(--ease),opacity .2s;pointer-events:none}
 .nl .ink.show{opacity:1}
-.nav-cta{min-height:40px!important;padding:0 14px!important;font-size:11px!important;flex:none}
+.nav-cta{flex:none;display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 24px;font:800 11px/1 var(--nav);font-stretch:125%;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--red-fill);clip-path:polygon(9px 0,100% 0,calc(100% - 9px) 100%,0 100%);transition:background .16s,color .16s}
 .nav-cta .go{display:none;transition:transform .16s var(--ease)}
-.nav-cta:hover .go{transform:translateX(3px)}
-.burger{flex:none;width:44px;height:44px;display:grid;place-content:center;gap:5px;background:none;border:1px solid var(--line-hi);color:var(--ink);cursor:pointer;transition:background .16s,border-color .16s}
-.burger:hover{background:rgba(239,236,227,.08);border-color:var(--ink)}
-.burger i{display:block;width:20px;height:2px;background:currentColor}
-.burger i:last-child{width:13px;justify-self:end}
-@media (min-width:880px){.nl{display:flex}.burger{display:none}.nav-cta{padding:0 18px!important}.nav-cta .go{display:inline}.bar-in{padding-left:24px;padding-right:14px;gap:10px}}
-@media (max-width:420px){.nav-cta{padding:0 11px!important;font-size:10px!important;letter-spacing:.12em!important}.bar-in{padding:0 8px 0 14px;gap:6px}.brand img{height:30px}.is-compact .brand img{height:26px}}
+.nav-cta:hover{background:#ea2f38}.nav-cta:hover .go{transform:translateX(3px)}
+.nav-cta:active{background:#a50f17}
+.nav-cta:focus-visible{outline:none;background:#fff;color:#07090f;text-decoration:underline;text-underline-offset:4px}
+.burger{flex:none;width:44px;height:44px;margin-right:-8px;display:grid;place-content:center;gap:6px;background:none;border:0;color:var(--ink);cursor:pointer}
+.burger i{display:block;width:22px;height:2px;background:currentColor;transition:width .2s var(--ease),background .16s}
+.burger i:last-child{width:14px;justify-self:end}
+.burger:hover i{background:var(--red-hi)}.burger:hover i:last-child{width:22px}
+.herozone .hero{padding-top:calc(var(--navh) + clamp(20px,4vw,48px))}
+@media (min-width:880px){.nl{display:flex}.burger{display:none}.nav-cta .go{display:inline}.brand img{height:42px}.is-compact .brand img{height:34px}}
+@media (max-width:879px){:root{--navh:64px}.site-nav.is-compact{--h:54px}.nav-cta{padding:0 20px}}
+@media (max-width:420px){.nav-cta{padding:0 16px 0 18px;font-size:10px;letter-spacing:.1em}.brand img{height:31px}.is-compact .brand img{height:29px}.nav-in{gap:8px}}
 /* phone menu: full-screen overlay */
 .menu{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;padding:10px var(--pad) 18px;background:rgba(5,6,10,.97);background-image:linear-gradient(rgba(239,236,227,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(239,236,227,.04) 1px,transparent 1px);background-size:48px 48px;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);overflow-y:auto;visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .22s var(--ease),transform .22s var(--ease),visibility 0s linear .22s}
 .menu.open{visibility:visible;opacity:1;transform:none;transition-delay:0s}
 .menu-top .brand{margin-right:auto}.menu-top{display:flex;align-items:center;justify-content:space-between;height:60px;flex:none}
-.menu-top .brand img{height:30px}
+.menu-top .brand img{height:32px}
+.menu::before{content:"道";position:absolute;right:-16px;bottom:96px;z-index:-1;font:900 360px/1 var(--kana);color:rgba(224,38,47,.08);pointer-events:none}
 .x{width:44px;height:44px;position:relative;background:none;border:1px solid var(--line-hi);color:var(--ink);cursor:pointer}
 .x::before,.x::after{content:"";position:absolute;left:11px;right:11px;top:50%;height:2px;background:currentColor;transform:rotate(45deg)}
 .x::after{transform:rotate(-45deg)}
@@ -96,8 +103,8 @@ h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.015em
 .menu li:last-child{border-bottom:1px solid var(--line)}
 .menu.open li{opacity:1;transform:none}
 .menu.open li:nth-child(1){transition-delay:.06s}.menu.open li:nth-child(2){transition-delay:.11s}.menu.open li:nth-child(3){transition-delay:.16s}.menu.open li:nth-child(4){transition-delay:.21s}
-.menu li a{display:grid;grid-template-columns:8px 1fr auto;align-items:center;gap:16px;padding:10px 4px;text-decoration:none;color:var(--ink)}
-.menu li a b{display:block;font:800 clamp(54px,17vw,92px)/.95 var(--disp);letter-spacing:-.01em;text-transform:uppercase}
+.menu li a{display:grid;grid-template-columns:8px 1fr auto;align-items:center;gap:18px;padding:22px 4px;text-decoration:none;color:var(--ink)}
+.menu li a b{display:block;font:800 clamp(26px,8.6vw,44px)/1 var(--nav);font-stretch:125%;letter-spacing:.01em;text-transform:uppercase}
 .menu li a .chip{align-self:center;height:56%;background:var(--c)}
 .menu li a .k{font:900 20px/1 var(--kana);color:var(--dim)}
 .menu li a:hover b,.menu li a:focus-visible b{color:var(--red-hi)}
@@ -272,8 +279,8 @@ footer{border-top:1px solid var(--line)}
 <aside class="bwx-strip" aria-label="bWalletX"><a href="https://bwalletx.com"><svg viewBox="23 8 74 100" aria-hidden="true" focusable="false"><defs><linearGradient id="bwx-g" gradientUnits="userSpaceOnUse" x1="0" y1="12" x2="0" y2="105"><stop offset="0" stop-color="#FFE58A"/><stop offset=".55" stop-color="#FFD24D"/><stop offset="1" stop-color="#C98F00"/></linearGradient><mask id="bwx-m"><rect width="140" height="140" fill="#fff"/><circle cx="60" cy="72" r="15" fill="#000"/></mask></defs><g fill="url(#bwx-g)" mask="url(#bwx-m)"><polygon points="45,12 45,76 27,76 27,30"/><circle cx="60" cy="72" r="33"/></g></svg><span>Part of <b>bWalletX</b></span><span class="go" aria-hidden="true">&rarr;</span></a></aside>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-nav" id="top">
-  <div class="bar"><div class="bar-in">
-    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="147" height="34"></a>
+  <div class="nav-in wrap">
+    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="178" height="42"></a>
     <nav class="nl" id="links" aria-label="Main">
       <span class="ink" aria-hidden="true"></span>
       <a href="#what">The dojo</a>
@@ -281,13 +288,13 @@ footer{border-top:1px solid var(--line)}
       <a href="#join">Join</a>
       <a href="#status">Status</a>
     </nav>
-    <a class="btn btn-red nav-cta" href="https://bwalletx.com/get">Get bWalletX <span class="go" aria-hidden="true">&rarr;</span></a>
+    <a class="nav-cta" href="https://bwalletx.com/get">Get bWalletX <span class="go" aria-hidden="true">&rarr;</span></a>
     <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
-  </div></div>
+  </div>
 </header>
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="menu-top">
-    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="129" height="30"></a>
+    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="136" height="32"></a>
     <button class="x" type="button" id="menu-x" aria-label="Close menu"></button>
   </div>
   <ol>
@@ -407,7 +414,7 @@ footer{border-top:1px solid var(--line)}
 <div class="hazard" aria-hidden="true"></div>
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="108" height="25" style="height:25px"></a>
+    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="106" height="25" style="height:25px;width:auto"></a>
     <nav aria-label="Footer">
       <a href="/watch">Watch the film</a>
       <a href="https://bwalletx.com">bWalletX home</a>
@@ -432,9 +439,9 @@ var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnec
 </script>
 <script>
 (function(){
-var hd=document.querySelector('.site-nav'),bar=hd.querySelector('.bar'),links=document.getElementById('links'),ink=links.querySelector('.ink'),as=[].slice.call(links.querySelectorAll('a'));
+var hd=document.querySelector('.site-nav'),links=document.getElementById('links'),ink=links.querySelector('.ink'),as=[].slice.call(links.querySelectorAll('a'));
 var menu=document.getElementById('menu'),bg=document.getElementById('burger'),cx=document.getElementById('menu-x');
-function place(a){if(!a){ink.classList.remove('show');return}ink.style.setProperty('--x',a.offsetLeft+14+'px');ink.style.setProperty('--w',a.offsetWidth-28+'px');ink.classList.add('show')}
+function place(a){if(!a){ink.classList.remove('show');return}ink.style.setProperty('--x',a.offsetLeft+10+'px');ink.style.setProperty('--w',a.offsetWidth-20+'px');ink.classList.add('show')}
 function setOn(id){var cur=null;as.forEach(function(a){var on=a.getAttribute('href')==='#'+id;a.classList.toggle('on',on);if(on){a.setAttribute('aria-current','true');cur=a}else a.removeAttribute('aria-current')});place(cur)}
 var ids=['what','how','join','status'],secs=ids.map(function(i){return document.getElementById(i)}).filter(Boolean);
 function spy(){var y=innerHeight*.35,cur='';secs.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)cur=s.id});setOn(cur)}

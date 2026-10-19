@@ -52,7 +52,7 @@ const shim = new THREE.Mesh(ext(sh, .86, .05), navy); torii.add(shim);
 const ks = new THREE.Shape(); { const N = 60, top = [], bot = []; for (let i = 0; i <= N; i++) { const x = -6.2 + 12.4 * i / N, t = Math.pow(Math.abs(x) / 6.2, 2.1); top.push([x, 7.75 + .62 * t]); bot.push([x * .96, 7.15 + .36 * t]); } ks.moveTo(bot[0][0], bot[0][1]); top.forEach(p => ks.lineTo(p[0], p[1])); bot.reverse().forEach(p => ks.lineTo(p[0], p[1])); ks.closePath(); }
 const kas = new THREE.Mesh(ext(ks, 1.05, .08), lacquer); torii.add(kas);
 torii.rotation.y = -.5; torii.rotation.x = .0;
-scene.add(torii);
+scene.add(torii); if (q.get('notorii')) torii.visible = false;
 
 // lights: warm key, blue rim from behind, red kicker
 const key = new THREE.DirectionalLight(0xfff0e0, 1.7); key.position.set(6, 12, 10); scene.add(key);
@@ -61,7 +61,7 @@ const kick = new THREE.DirectionalLight(0xff4a3a, 1.6); kick.position.set(10, 2,
 scene.add(new THREE.AmbientLight(0x1a2450, .6));
 
 if (mode === 'scene') {
-  const mir = torii.clone(); mir.scale.y = -1; scene.add(mir);
+  if (!q.get('notorii')) { const mir = torii.clone(); mir.scale.y = -1; scene.add(mir); }
   const gc = document.createElement('canvas'); gc.width = gc.height = 512; const gx = gc.getContext('2d');
   const gr = gx.createRadialGradient(256, 256, 20, 256, 256, 256); gr.addColorStop(0, 'rgba(6,9,22,.55)'); gr.addColorStop(.55, 'rgba(6,9,22,.86)'); gr.addColorStop(.92, 'rgba(6,9,22,0)');
   gx.fillStyle = gr; gx.fillRect(0, 0, 512, 512);

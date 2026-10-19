@@ -1,26 +1,15 @@
-<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet"><style>
-body{margin:0;width:1200px;height:630px;background:#07090f;color:#efece3;position:relative;overflow:hidden;font-family:'Space Mono',monospace;
-background-image:linear-gradient(rgba(239,236,227,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(239,236,227,.04) 1px,transparent 1px);background-size:48px 48px}
-.hz{position:absolute;left:0;right:0;top:0;height:10px;background:repeating-linear-gradient(-45deg,#c8141c 0 14px,#07090f 14px 28px)}
-.top{position:absolute;left:72px;top:56px;display:flex;align-items:center;gap:18px}
-.top img.l{height:64px}
-h1{position:absolute;left:72px;top:150px;margin:0;font:900 104px/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase;width:660px}
-h1 b{color:#ff5a60}
-.m{position:absolute;left:72px;bottom:54px;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#8a8c9b}
-.plate{position:absolute;right:72px;top:64px;width:370px;height:502px;border:1px solid rgba(239,236,227,.42);background:#0d1019}
-.plate::before{content:"";position:absolute;left:-1px;top:-1px;width:44px;height:4px;background:#e3262e}
-.plate svg{position:absolute;left:10px;top:40px;width:350px}
-.plate img.m{position:absolute;left:76px;top:124px;width:246px}.belt{position:absolute;left:24px;right:24px;top:376px;height:14px;background:#0a0a0c;box-shadow:0 0 0 1px rgba(239,236,227,.42),0 0 0 3px rgba(227,38,46,.5)}
-.chips{position:absolute;left:24px;top:420px;display:flex;gap:8px}.chips i{width:56px;height:8px;display:block}
-.pl{position:absolute;left:24px;top:18px;font-size:12px;letter-spacing:.16em;color:#8a8c9b;text-transform:uppercase}
-.k{position:absolute;right:24px;top:18px;font:900 18px 'Noto Sans JP';color:#e3262e}
-.u{position:absolute;left:24px;bottom:22px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#8a8c9b}
-</style></head><body><div class="hz"></div>
-<div class="top"><img class="l" src="../logo-lockup.svg"></div>
-<h1>A <b>black belt</b> register for every company</h1>
+<!doctype html><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=IBM+Plex+Sans+Condensed:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;width:1200px;height:630px;background:#05060d url(brand/scene-rain.png) 72% 50%/auto 150% no-repeat;color:#efece3;position:relative;overflow:hidden;font-family:'IBM Plex Sans Condensed',sans-serif}
+.sh{position:absolute;inset:0;background:linear-gradient(90deg,#05060d 0%,#05060dee 38%,#05060d00 70%),linear-gradient(0deg,#05060dcc,#05060d00 40%)}
+.top{position:absolute;left:72px;top:58px}.top img{height:60px;display:block}
+h1{position:absolute;left:72px;top:170px;margin:0;font:900 102px/.92 'Big Shoulders Display',sans-serif;text-transform:uppercase;width:640px}h1 b{color:#ff5a60}
+.m{position:absolute;left:72px;bottom:52px;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:#9aa0b4}
+.mk{position:absolute;right:46px;top:44px;width:470px;height:470px;-webkit-box-reflect:below -70px linear-gradient(transparent 55%,rgba(255,255,255,.25))}.mk img{width:100%;display:block}
+.cut{position:absolute;left:0;top:0;bottom:0;width:10px;background:linear-gradient(#e0262f 0 62%,#3a6bf0 62%)}
+</style><body><div class="sh"></div><div class="cut"></div>
+<div class="top"><img src="../logo-lockup.svg" alt=""></div>
+<h1>A launchpad for startups, <b>on chain.</b></h1>
 <div class="m">bdojox.com · part of bWalletX</div>
-<div class="plate"><span class="pl">Plate 01</span><span class="k">ドージョー</span>
-<svg viewBox="-14 -10 92 86"><path d="M52 -.6A40 40 0 1 1 25.1 -5.4" fill="none" stroke="#efece3" stroke-width="1.4" stroke-linecap="round"/></svg><img class="m" src="../logo.svg">
-<div class="belt"></div><div class="chips"><i style="background:#ece8dc"></i><i style="background:#e9c43a"></i><i style="background:#4f9a5a"></i><i style="background:#4a74c9"></i><i style="background:#0a0a0c;box-shadow:0 0 0 1px rgba(239,236,227,.42)"></i></div>
-<span class="u">Register &rarr; Belt</span></div>
-</body></html>
+<div class="mk"><img src="../brand/mark-3d.png" alt=""></div>
+<script>Promise.all([...document.images].map(i=>i.decode())).then(()=>document.fonts.ready).then(()=>{window.__ready=true})</script>
