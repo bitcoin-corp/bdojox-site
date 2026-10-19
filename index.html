@@ -25,7 +25,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700..800&family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#07090f;--panel:#0d1019;--ink:#efece3;--muted:#a9abb8;--dim:#8a8c9b;
@@ -56,7 +56,7 @@ h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.015em
 .bwx-strip .go{transition:transform .16s var(--ease)}
 .bwx-strip a:hover{color:var(--ink)}.bwx-strip a:hover .go{transform:translateX(3px)}
 /* nav: clean glass header over the film; slash-cut accents (parallelogram marks at the lockup's 14deg lean) */
-:root{--nav:'Archivo','IBM Plex Sans',system-ui,sans-serif;--navh:72px}
+:root{--nav:'Chakra Petch','IBM Plex Sans',system-ui,sans-serif;--navh:72px}
 .skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--ink);color:#07090f;font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:14px 18px;text-decoration:none;transition:top .16s var(--ease)}
 .skip:focus{top:12px}
 .site-nav{--h:var(--navh);position:sticky;top:0;z-index:60;height:var(--navh);margin-bottom:calc(var(--navh) * -1)}
@@ -70,12 +70,12 @@ h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.015em
 .brand img{display:block;height:34px;width:auto;transition:height .24s var(--ease)}
 .is-compact .brand img{height:30px}
 .nl{position:relative;display:none;align-self:stretch;align-items:center;gap:2px;margin:0 auto}
-.nl a{position:relative;display:flex;align-items:center;min-height:44px;padding:0 15px;font:700 11.5px/1 var(--nav);font-stretch:125%;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:#b5b9c8;white-space:nowrap;transition:color .16s}
+.nl a{position:relative;display:flex;align-items:center;min-height:44px;padding:0 15px;font:600 13px/1 var(--nav);letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:#b5b9c8;white-space:nowrap;transition:color .16s}
 .nl a:hover,.nl a.on{color:#fff}
 .nl a:focus-visible{outline-offset:-4px}
 .nl .ink{position:absolute;left:0;bottom:-1px;height:3px;width:var(--w,0);background:var(--red);clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);transform:translateX(var(--x,0));opacity:0;transition:transform .3s var(--ease),width .3s var(--ease),opacity .2s;pointer-events:none}
 .nl .ink.show{opacity:1}
-.nav-cta{flex:none;display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 24px;font:800 11px/1 var(--nav);font-stretch:125%;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--red-fill);clip-path:polygon(9px 0,100% 0,calc(100% - 9px) 100%,0 100%);transition:background .16s,color .16s}
+.nav-cta{flex:none;display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 24px;font:700 12.5px/1 var(--nav);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--red-fill);clip-path:polygon(9px 0,100% 0,calc(100% - 9px) 100%,0 100%);transition:background .16s,color .16s}
 .nav-cta .go{display:none;transition:transform .16s var(--ease)}
 .nav-cta:hover{background:#ea2f38}.nav-cta:hover .go{transform:translateX(3px)}
 .nav-cta:active{background:#a50f17}
@@ -104,7 +104,7 @@ h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.015em
 .menu.open li{opacity:1;transform:none}
 .menu.open li:nth-child(1){transition-delay:.06s}.menu.open li:nth-child(2){transition-delay:.11s}.menu.open li:nth-child(3){transition-delay:.16s}.menu.open li:nth-child(4){transition-delay:.21s}
 .menu li a{display:grid;grid-template-columns:8px 1fr auto;align-items:center;gap:18px;padding:22px 4px;text-decoration:none;color:var(--ink)}
-.menu li a b{display:block;font:800 clamp(26px,8.6vw,44px)/1 var(--nav);font-stretch:125%;letter-spacing:.01em;text-transform:uppercase}
+.menu li a b{display:block;font:700 clamp(28px,9vw,48px)/1 var(--nav);letter-spacing:.01em;text-transform:uppercase}
 .menu li a .chip{align-self:center;height:56%;background:var(--c)}
 .menu li a .k{font:900 20px/1 var(--kana);color:var(--dim)}
 .menu li a:hover b,.menu li a:focus-visible b{color:var(--red-hi)}
