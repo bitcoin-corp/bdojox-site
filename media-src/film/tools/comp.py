@@ -135,7 +135,8 @@ def text(txt, font, col, track=0):
     return im.crop(im.getbbox() or (0, 0, 1, 1))
 
 LOGO = Image.open(os.path.join(IMG, 'logo.png')).convert('RGBA')
-WORD = Image.open(os.path.join(IMG, 'wordmark.png')).convert('RGBA')
+WORD = Image.open(os.path.join(IMG, 'wordmark-new.png')).convert('RGBA')  # end card: Chakra Petch wordmark (brand-gen.mjs)
+MARK = Image.open(os.path.join(IMG, 'mark-new.png')).convert('RGBA')  # end card: 3D torii + brush ensō + 道 seal (brand/mark-3d.png)
 def recolor(im, col):
     a = np.asarray(im).copy(); a[..., :3] = col; return Image.fromarray(a)
 
@@ -227,16 +228,16 @@ def finale(f, t):
     tl = t - 28.0
     if tl < 0: return
     # torii mark rises 28.0-30.0, wordmark slams at 30.0
-    lh = int((300 if not V else 340) * U); lg = LOGO.resize((int(lh * LOGO.width / LOGO.height), lh), Image.LANCZOS)
+    lh = int((390 if not V else 430) * U); lg = MARK.resize((lh, lh), Image.LANCZOS)
     p = ease(tl / 1.6)
-    cx = W // 2; cy = int(H * (.40 if not V else .40))
+    cx = W // 2; cy = int(H * (.38 if not V else .37))
     pad = int(120 * U); g = Image.new('RGBA', (lg.width + 2 * pad, lg.height + 2 * pad)); g.alpha_composite(recolor(lg, RED), (pad, pad))
     glow = g.filter(ImageFilter.GaussianBlur(40 * U))
     over(f, glow, cx - lg.width // 2 - pad, cy - lg.height // 2 - pad + int(60 * U * (1 - p)), .8 * p)
     over(f, lg, cx - lg.width // 2, cy - lg.height // 2 + int(60 * U * (1 - p)), p)
     if t >= 30.0:
         tw = t - 30.0; s = 1 + .3 * (1 - ease(tw * 5))
-        ww = int((620 if not V else 640) * U * s); wm = WORD.resize((ww, int(ww * WORD.height / WORD.width)), Image.LANCZOS)
+        ww = int((560 if not V else 600) * U * s); wm = WORD.resize((ww, int(ww * WORD.height / WORD.width)), Image.LANCZOS)
         over(f, wm, cx - wm.width // 2, cy + lh // 2 + int(40 * U), 1)
         url = text('BDOJOX.COM  ·  A LAUNCHPAD FOR STARTUPS', plex(26 * U), WHITE, track=3 * U)
         over(f, url, cx - url.width // 2, cy + lh // 2 + int(60 * U) + wm.height, ease((tw - .2) * 3))

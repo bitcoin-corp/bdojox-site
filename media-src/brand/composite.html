@@ -3,10 +3,11 @@
 <style>
 html,body{margin:0;background:transparent}
 .mk{position:relative;width:2000px;height:2000px}.mk img{position:absolute;display:block}
+body.torii .mk img:not(.t){display:none}
 body.scene{width:2400px;height:1350px;background:#05060d url(scene-rain.png) center/cover;overflow:hidden;position:relative}
 body.scene .mk{position:absolute;left:700px;top:60px;width:1000px;height:1000px;transform:none;-webkit-box-reflect:below -190px linear-gradient(transparent 50%,rgba(255,255,255,.22))}
 body.scene .mk>*{zoom:.5}
 </style>
-<div class="mk" id="mk"><img src="enso.svg" style="left:0;top:0;width:2000px;height:2000px"><img src="torii3d-mark.png" style="left:152px;top:371px;width:1603px"><img src="seal.svg" style="left:0;top:0;width:2000px;height:2000px"></div>
+<div class="mk" id="mk"><img src="enso.svg" style="left:0;top:0;width:2000px;height:2000px"><img class="t" src="torii3d-mark.png" style="left:152px;top:371px;width:1603px"><img src="seal.svg" style="left:0;top:0;width:2000px;height:2000px"></div>
 <script>document.body.className=new URLSearchParams(location.search).get('mode')||'mark';
 Promise.all([...document.images].map(i=>i.decode())).then(()=>{window.__ready=true})</script>

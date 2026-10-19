@@ -1,10 +1,10 @@
-// bDojoX brand family generator. Run: FONTS=<dir with archivo.ttf (Archivo Expanded 800 static) + shippori.ttf (Shippori Mincho 800 static)> OUT=<repo root> node media-src/brand/brand-gen.mjs
+// bDojoX brand family generator. Run: FONTS=<dir with chakra.ttf (Chakra Petch Bold 700 static) + shippori.ttf (Shippori Mincho 800 static)> OUT=<repo root> node media-src/brand/brand-gen.mjs
 // Outputs filter-free, font-free SVGs (all text outlined) so they work as <img>, in the wallet theme PR, anywhere.
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const require = createRequire(process.env.TOOLS ? process.env.TOOLS + '/x.js' : import.meta.url); const opentype = require('opentype.js');
 const FONTS = process.env.FONTS, OUT = process.env.OUT || process.cwd();
 const load = n => { const b = fs.readFileSync(path.join(FONTS, n)); return opentype.parse(b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength)); };
-const arch = load('archivo.ttf'), shi = load('shippori.ttf');
+const arch = load('chakra.ttf'), shi = load('shippori.ttf');
 const f = n => (Math.round(n * 100) / 100).toString();
 const C = { red: '#e0262f', redD: '#c8141c', ink: '#efece3', navy: '#07090f', blue: '#3a6bf0' };
 let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
@@ -66,9 +66,9 @@ function mark({ mono = false, bg = null, id = 'm', rot = -5 } = {}) {
   return `${bg ? `<rect width="200" height="200" rx="${bg.r}" fill="${bg.fill}"/>` : ''}${carve}<path d="${ENSO}" fill="${ink}"${mono ? ` mask="url(#cv${id})"` : ''}/>${torii(57, 58, .86, { id, mono })}${seal(126, 124, 52, rot, mono ? '#fff' : C.red)}`;
 }
 const svg = (vb, body, extra = '') => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" width="${vb.split(' ')[2]}" height="${vb.split(' ')[3]}"${extra}>${body}</svg>\n`;
-// ---------- wordmark: Archivo Expanded 800 caps, X split red/blue by a slash cut
+// ---------- wordmark: Chakra Petch Bold 700 caps, X split red/blue by a slash cut
 function wordmark({ mono = false, cap = 80, x0 = 0, y0 = 0 } = {}) {
-  const size = cap / (arch.tables.os2.sCapHeight / arch.unitsPerEm), tr = size * .035; let x = x0, body = '', cid = 'wx' + (++sid);
+  const size = cap / (arch.tables.os2.sCapHeight / arch.unitsPerEm), tr = size * .075; let x = x0, body = '', cid = 'wx' + (++sid);
   const base = y0 + cap, ink = mono ? '#fff' : C.ink; let right = 0;
   for (const ch of 'BDOJOX') {
     const g = arch.charToGlyph(ch), adv = g.advanceWidth * size / arch.unitsPerEm, d = g.getPath(x, base, size).toPathData(2);
@@ -81,7 +81,7 @@ function wordmark({ mono = false, cap = 80, x0 = 0, y0 = 0 } = {}) {
   return { body, w: right - x0, h: cap };
 }
 function lockup(mono) {
-  const wm = wordmark({ mono, cap: 74, x0: 226, y0: 63 });
+  const wm = wordmark({ mono, cap: 80, x0: 226, y0: 60 });
   return svg(`0 0 ${f(226 + wm.w + 4)} 200`, `${mark({ mono, id: mono ? 'lm' : 'l' })}${wm.body}`, ` role="img" aria-label="bDojoX"`);
 }
 const W = (n, s) => { fs.writeFileSync(path.join(OUT, n), s); console.log('wrote', n); };
@@ -89,7 +89,7 @@ W('logo.svg', svg('0 0 200 200', mark({ id: 'a' }), ' role="img" aria-label="bDo
 W('logo-mono.svg', svg('0 0 200 200', mark({ mono: true }), ' role="img" aria-label="bDojoX"'));
 W('logo-hero.svg', svg('0 0 200 200', `<ellipse cx="100" cy="150" rx="46" ry="5" fill="#000" fill-opacity=".35"/>${mark({ id: 'h' })}`, ' role="img" aria-label="bDojoX"'));
 W('logo-lockup.svg', lockup(false)); W('logo-lockup-mono.svg', lockup(true));
-{ const wm = wordmark({ cap: 74, x0: 2, y0: 2 }), wmm = wordmark({ cap: 74, x0: 2, y0: 2, mono: true }); W('wordmark.svg', svg(`0 0 ${f(wm.w + 6)} 78`, wm.body, ' role="img" aria-label="bDojoX"')); W('wordmark-mono.svg', svg(`0 0 ${f(wm.w + 6)} 78`, wmm.body, ' role="img" aria-label="bDojoX"')); }
+{ const wm = wordmark({ cap: 80, x0: 2, y0: 2 }), wmm = wordmark({ cap: 80, x0: 2, y0: 2, mono: true }); W('wordmark.svg', svg(`0 0 ${f(wm.w + 6)} 84`, wm.body, ' role="img" aria-label="bDojoX"')); W('wordmark-mono.svg', svg(`0 0 ${f(wm.w + 6)} 84`, wmm.body, ' role="img" aria-label="bDojoX"')); }
 // ---------- tiles: combo candidates (B's red 道 seal tile + torii)
 function tileSeal(id) { const gp = glyphPath(shi, '道', 156, 100, 104); return `<defs><mask id="${id}"><rect width="200" height="200" fill="#fff"/><path d="${gp}" fill="#000"/></mask></defs><rect x="12" y="12" width="176" height="176" rx="22" fill="${C.red}" mask="url(#${id})"/>`; }
 const T = {
