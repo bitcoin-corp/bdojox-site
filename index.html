@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>bDojoX · A black belt register for every company</title>
-<meta name="description" content="bDojoX helps companies form on chain and raise capital in BSV. Keep your share register in bShares, held in your shareholders' own bWalletX, locked 2-of-2.">
+<meta name="description" content="bDojoX helps companies form on chain and raise capital in BSV and MNEE. Keep your share register in bShares, held in your shareholders' own bWalletX, locked 2-of-2.">
 <link rel="canonical" href="https://bdojox.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bdojox.com/">
 <meta property="og:site_name" content="bDojoX">
 <meta property="og:title" content="bDojoX · A black belt register for every company">
-<meta property="og:description" content="bDojoX helps companies form on chain and raise capital in BSV. Your register, mirrored on chain and held in your shareholders' own wallets, locked 2-of-2.">
+<meta property="og:description" content="bDojoX helps companies form on chain and raise capital in BSV and MNEE. Your register, mirrored on chain and held in your shareholders' own wallets, locked 2-of-2.">
 <meta property="og:image" content="https://bdojox.com/og-bdojox.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="bDojoX: a black belt register for every company. A red and blue torii gate with a belt that moves from white to black.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="bDojoX · A black belt register for every company">
-<meta name="twitter:description" content="bDojoX helps companies form on chain and raise capital in BSV. Your register, mirrored on chain and held in your shareholders' own wallets, locked 2-of-2.">
+<meta name="twitter:description" content="bDojoX helps companies form on chain and raise capital in BSV and MNEE. Your register, mirrored on chain and held in your shareholders' own wallets, locked 2-of-2.">
 <meta name="twitter:image" content="https://bdojox.com/og-bdojox.png">
 <meta name="theme-color" content="#07090f">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -54,13 +54,60 @@ h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.015em
 .bwx-strip b{color:#ffd24d;font-weight:700}
 .bwx-strip .go{transition:transform .16s var(--ease)}
 .bwx-strip a:hover{color:var(--ink)}.bwx-strip a:hover .go{transform:translateX(3px)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{display:block}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a:not(.btn){font:700 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:8px 0;border-bottom:2px solid transparent;transition:color .16s,border-color .16s}
-.nav-links a:not(.btn):hover{color:var(--ink);border-color:var(--red)}
-@media (max-width:760px){.nav-links .hide-s{display:none}}
+/* nav: floating slanted glass bar (skew matches the logo's 14deg lean) */
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--ink);color:#07090f;font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:14px 18px;text-decoration:none;transition:top .16s var(--ease)}
+.skip:focus{top:12px}
+.site-nav{position:sticky;top:0;z-index:60;padding:10px calc(var(--pad) + 14px) 0;margin-bottom:10px;pointer-events:none}
+.bar{--h:60px;position:relative;pointer-events:auto;max-width:1240px;margin:0 auto;height:var(--h);transform:skewX(-14deg);background:rgba(9,12,20,.5);-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);border:1px solid var(--line-hi);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 30px -12px rgba(0,0,0,.7);transition:height .2s var(--ease),background .2s,box-shadow .2s}
+.bar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:repeating-linear-gradient(-45deg,var(--red-fill) 0 6px,transparent 6px 12px);opacity:.9;pointer-events:none}
+.bar::before{content:"";position:absolute;left:-1px;top:-1px;width:48px;height:3px;background:var(--red);pointer-events:none}
+.bar-in{display:flex;align-items:center;gap:8px;height:100%;padding:0 12px 0 20px;transform:skewX(14deg)}
+.is-compact .bar{--h:50px;background:rgba(7,9,15,.78)}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none;margin-right:auto}
+@media (min-width:880px){.brand{margin-right:0}}
+.brand img{display:block;height:34px;width:auto;transition:height .2s var(--ease)}
+.is-compact .brand img{height:28px}
+.nl{position:relative;display:none;align-items:center;gap:2px;margin:0 auto}
+.nl a{position:relative;display:flex;align-items:center;min-height:44px;padding:0 14px;font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--muted);white-space:nowrap;transition:color .16s}
+.nl a:hover,.nl a.on{color:var(--ink)}
+.nl a:focus-visible{outline-offset:-2px}
+.nl .ink{position:absolute;left:0;bottom:6px;height:2px;width:var(--w,0);background:var(--red);transform:translateX(var(--x,0));opacity:0;transition:transform .28s var(--ease),width .28s var(--ease),opacity .2s;pointer-events:none}
+.nl .ink.show{opacity:1}
+.nav-cta{min-height:40px!important;padding:0 14px!important;font-size:11px!important;flex:none}
+.nav-cta .go{display:none;transition:transform .16s var(--ease)}
+.nav-cta:hover .go{transform:translateX(3px)}
+.burger{flex:none;width:44px;height:44px;display:grid;place-content:center;gap:5px;background:none;border:1px solid var(--line-hi);color:var(--ink);cursor:pointer;transition:background .16s,border-color .16s}
+.burger:hover{background:rgba(239,236,227,.08);border-color:var(--ink)}
+.burger i{display:block;width:20px;height:2px;background:currentColor}
+.burger i:last-child{width:13px;justify-self:end}
+@media (min-width:880px){.nl{display:flex}.burger{display:none}.nav-cta{padding:0 18px!important}.nav-cta .go{display:inline}.bar-in{padding-left:24px;padding-right:14px;gap:10px}}
+@media (max-width:420px){.nav-cta{padding:0 11px!important;font-size:10px!important;letter-spacing:.12em!important}.bar-in{padding:0 8px 0 14px;gap:6px}.brand img{height:30px}.is-compact .brand img{height:26px}}
+/* phone menu: full-screen overlay */
+.menu{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;padding:10px var(--pad) 18px;background:rgba(5,6,10,.97);background-image:linear-gradient(rgba(239,236,227,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(239,236,227,.04) 1px,transparent 1px);background-size:48px 48px;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);overflow-y:auto;visibility:hidden;opacity:0;transform:translateY(-12px);transition:opacity .22s var(--ease),transform .22s var(--ease),visibility 0s linear .22s}
+.menu.open{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+.menu-top .brand{margin-right:auto}.menu-top{display:flex;align-items:center;justify-content:space-between;height:60px;flex:none}
+.menu-top .brand img{height:30px}
+.x{width:44px;height:44px;position:relative;background:none;border:1px solid var(--line-hi);color:var(--ink);cursor:pointer}
+.x::before,.x::after{content:"";position:absolute;left:11px;right:11px;top:50%;height:2px;background:currentColor;transform:rotate(45deg)}
+.x::after{transform:rotate(-45deg)}
+.x:hover{border-color:var(--ink);background:rgba(239,236,227,.08)}
+.menu ol{list-style:none;margin:auto 0;padding:12px 0;display:grid}
+.menu li{border-top:1px solid var(--line);opacity:0;transform:translateY(14px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.menu li:last-child{border-bottom:1px solid var(--line)}
+.menu.open li{opacity:1;transform:none}
+.menu.open li:nth-child(1){transition-delay:.06s}.menu.open li:nth-child(2){transition-delay:.11s}.menu.open li:nth-child(3){transition-delay:.16s}.menu.open li:nth-child(4){transition-delay:.21s}
+.menu li a{display:grid;grid-template-columns:8px 1fr auto;align-items:center;gap:16px;padding:10px 4px;text-decoration:none;color:var(--ink)}
+.menu li a b{display:block;font:800 clamp(54px,17vw,92px)/.95 var(--disp);letter-spacing:-.01em;text-transform:uppercase}
+.menu li a .chip{align-self:center;height:56%;background:var(--c)}
+.menu li a .k{font:900 20px/1 var(--kana);color:var(--dim)}
+.menu li a:hover b,.menu li a:focus-visible b{color:var(--red-hi)}
+.menu li a:focus-visible{outline-offset:-3px}
+.menu-foot{flex:none;display:grid;gap:14px}
+.menu-foot .btn{min-height:56px;font-size:13px}
+.menu-foot .mono{display:flex;justify-content:space-between;gap:12px}
+.menu-foot .hz{height:6px;background:repeating-linear-gradient(-45deg,var(--red-fill) 0 10px,#05060a 10px 20px)}
+body.locked{overflow:hidden}
+section[id]{scroll-margin-top:84px}
 .hazard{height:6px;background:repeating-linear-gradient(-45deg,var(--red-fill) 0 10px,#07090f 10px 20px)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;font:700 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:transform .16s var(--ease),box-shadow .16s var(--ease),border-color .16s,background .16s}
@@ -69,13 +116,12 @@ h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;letter-spacing:-.015em
 .btn-red:active{transform:none;box-shadow:none}
 .btn-line{border-color:var(--line-hi);color:var(--ink)}
 .btn-line:hover{border-color:var(--ink);background:rgba(239,236,227,.06)}
-.nav .btn{min-height:40px;padding:0 16px;font-size:11px}
 
 /* hero */
 .hero{position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:start;padding-top:clamp(28px,5vw,64px);padding-bottom:clamp(56px,8vw,112px)}
 .hero-meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 clamp(20px,3vw,36px)}
 .hero-meta span:first-child{color:var(--red-hi)}
-.hero h1{font-size:clamp(46px,13.4vw,70px);line-height:1.04}
+.hero h1{font-size:clamp(46px,13.4vw,70px);line-height:1.04;text-transform:uppercase;letter-spacing:.005em}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.12em}
 .hero h1 .ln>span{display:block;animation:rise .9s var(--ease) both}
 .hero h1 .ln:nth-child(2)>span{animation-delay:.08s}.hero h1 .ln:nth-child(3)>span{animation-delay:.16s}.hero h1 .ln:nth-child(4)>span{animation-delay:.24s}
@@ -219,19 +265,40 @@ footer{border-top:1px solid var(--line)}
 </head>
 <body>
 <aside class="bwx-strip" aria-label="bWalletX"><a href="https://bwalletx.com"><svg viewBox="23 8 74 100" aria-hidden="true" focusable="false"><defs><linearGradient id="bwx-g" gradientUnits="userSpaceOnUse" x1="0" y1="12" x2="0" y2="105"><stop offset="0" stop-color="#FFE58A"/><stop offset=".55" stop-color="#FFD24D"/><stop offset="1" stop-color="#C98F00"/></linearGradient><mask id="bwx-m"><rect width="140" height="140" fill="#fff"/><circle cx="60" cy="72" r="15" fill="#000"/></mask></defs><g fill="url(#bwx-g)" mask="url(#bwx-m)"><polygon points="45,12 45,76 27,76 27,30"/><circle cx="60" cy="72" r="33"/></g></svg><span>Part of <b>bWalletX</b></span><span class="go" aria-hidden="true">&rarr;</span></a></aside>
-<div class="wrap"><header class="nav">
-  <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo.svg" alt="" width="34" height="30"><img src="/wordmark.svg" alt="" width="73" height="22"></a>
-  <nav class="nav-links" aria-label="Main">
-    <a class="hide-s" href="#what">The dojo</a>
-    <a class="hide-s" href="#how">Five belts</a>
-    <a class="hide-s" href="#join">Join</a>
-    <a class="hide-s" href="#status">Status</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-nav" id="top">
+  <div class="bar"><div class="bar-in">
+    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="147" height="34"></a>
+    <nav class="nl" id="links" aria-label="Main">
+      <span class="ink" aria-hidden="true"></span>
+      <a href="#what">The dojo</a>
+      <a href="#how">Five belts</a>
+      <a href="#join">Join</a>
+      <a href="#status">Status</a>
+    </nav>
+    <a class="btn btn-red nav-cta" href="https://bwalletx.com/get">Get bWalletX <span class="go" aria-hidden="true">&rarr;</span></a>
+    <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div></div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-top">
+    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="129" height="30"></a>
+    <button class="x" type="button" id="menu-x" aria-label="Close menu"></button>
+  </div>
+  <ol>
+    <li><a href="#what"><span class="chip" style="--c:var(--b1)"></span><b>The dojo</b><span class="k" aria-hidden="true">一</span></a></li>
+    <li><a href="#how"><span class="chip" style="--c:var(--b2)"></span><b>Five belts</b><span class="k" aria-hidden="true">二</span></a></li>
+    <li><a href="#join"><span class="chip" style="--c:var(--b3)"></span><b>Join</b><span class="k" aria-hidden="true">三</span></a></li>
+    <li><a href="#status"><span class="chip" style="--c:var(--b5);box-shadow:0 0 0 1px var(--line-hi)"></span><b>Status</b><span class="k" aria-hidden="true">四</span></a></li>
+  </ol>
+  <div class="menu-foot">
     <a class="btn btn-red" href="https://bwalletx.com/get">Get bWalletX</a>
-  </nav>
-</header></div>
-<div class="hazard" aria-hidden="true"></div>
+    <span class="hz" aria-hidden="true"></span>
+    <span class="mono"><span>道場 · ドージョー</span><span>Part of bWalletX</span></span>
+  </div>
+</div>
 
-<main>
+<main id="main" tabindex="-1">
 <div class="herozone">
 <div class="hero-media" aria-hidden="true">
   <img class="hero-poster" src="/img/hero.webp" alt="" width="1600" height="900" decoding="async" fetchpriority="low">
@@ -241,7 +308,7 @@ footer{border-top:1px solid var(--line)}
   <div>
     <p class="hero-meta mono"><span>bDojoX</span><span>道場 · ドージョー</span><span>A dojo for companies</span></p>
     <h1><span class="ln"><span>Every company</span></span><span class="ln"><span>deserves a</span></span><span class="ln"><span>black belt</span></span><span class="ln"><span class="r">register.</span></span></h1>
-    <p class="lede">bDojoX helps companies form on chain and raise capital in BSV. Keep your register in bShares; your shareholders hold in their own bWalletX, locked 2-of-2. Step by step, belt by belt.</p>
+    <p class="lede">bDojoX helps companies form on chain and raise capital in BSV and MNEE. Keep your register in bShares; your shareholders hold in their own bWalletX, locked 2-of-2. Step by step, belt by belt.</p>
     <div class="ctas">
       <a class="btn btn-red" href="#how">How it works</a>
       <a class="btn btn-line" href="#join">Bring your company</a>
@@ -271,7 +338,7 @@ footer{border-top:1px solid var(--line)}
   <div class="body cols">
     <article><span class="mono">01</span><h3>For any company</h3><p>Three friends with a shop or a firm with hundreds of members. The company keeps its own register; bShares is the software it keeps it with.</p></article>
     <article><span class="mono">02</span><h3>Held by your shareholders</h3><p>Each holder sees their shares in their own bWalletX, in a 2-of-2 lock: the holder's key and the company's, so nothing moves unless both agree.</p></article>
-    <article><span class="mono">03</span><h3>Form it, then raise</h3><p>Starting out? bDojoX is built to help a new company form on chain and, in time, raise capital in BSV from stakeholders' wallets, with the care securities need.</p></article>
+    <article><span class="mono">03</span><h3>Form it, then raise</h3><p>Starting out? bDojoX is built to help a new company form on chain and, in time, raise capital in BSV and MNEE from stakeholders' wallets, with the care securities need.</p></article>
   </div>
 </div></section>
 
@@ -293,7 +360,7 @@ footer{border-top:1px solid var(--line)}
     <ol class="path" style="border-top:1px solid var(--line-hi)">
       <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">01</span><div><h3>Form your company</h3><p>Set up the company and its members' register from the start.</p></div></li>
       <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">02</span><div><h3>Keep the register on chain</h3><p>bShares keeps the legal register; a tokenised record follows it.</p></div></li>
-      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">03</span><div><h3>Raise in BSV</h3><p>From stakeholders' wallets, with the care securities need. Nothing on this page is an offer.</p></div></li>
+      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">03</span><div><h3>Raise in BSV and MNEE</h3><p>From stakeholders' wallets, with the care securities need. Nothing on this page is an offer.</p></div></li>
       <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">04</span><div><h3>Lock with multisig</h3><p>Holdings sit in 2-of-2 locks, so records only move when both sides sign.</p></div></li>
     </ol>
     <div class="invite">
@@ -315,7 +382,7 @@ footer{border-top:1px solid var(--line)}
     <li><span class="mono">04</span><span class="tag test">Testing</span><p><b>Company registers in bShares.</b> The first register, our own company's, is in testing inside bWalletX. <span class="where"><a href="https://bsharesx.com">bsharesx.com</a></span></p></li>
     <li><span class="mono">05</span><span class="tag soon">Coming</span><p><b>Set up any company's register.</b> Open to other companies.</p></li>
     <li><span class="mono">06</span><span class="tag soon">Coming</span><p><b>Holdings in shareholders' wallets, locked 2-of-2.</b> The register, the token and the lock joined up.</p></li>
-    <li><span class="mono">07</span><span class="tag soon">Planned</span><p><b>Form a company on chain and raise in BSV.</b> From stakeholders' wallets, with the care securities need. No offer is made on this page.</p></li>
+    <li><span class="mono">07</span><span class="tag soon">Planned</span><p><b>Form a company on chain and raise in BSV and MNEE.</b> From stakeholders' wallets, with the care securities need. No offer is made on this page.</p></li>
     <li><span class="mono">08</span><span class="tag soon">Planned</span><p><b>$403.</b> Securities-grade access on verified identity.</p></li>
   </ul>
 </div></section>
@@ -333,7 +400,7 @@ footer{border-top:1px solid var(--line)}
 <div class="hazard" aria-hidden="true"></div>
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo.svg" alt="" width="28" height="25"><img src="/wordmark.svg" alt="" width="62" height="19"></a>
+    <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="108" height="25" style="height:25px"></a>
     <nav aria-label="Footer">
       <a href="https://bwalletx.com">bWalletX home</a>
       <a href="https://bwalletx.com/privacy">Privacy</a>
@@ -353,6 +420,27 @@ if('IntersectionObserver' in window){var o=new IntersectionObserver(function(e){
 (function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var st=document.querySelector('.plate');if(!st||!('IntersectionObserver' in window))return;st.classList.add('wait');
 var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();st.classList.remove('wait')}},{threshold:.3});io.observe(st)})();
+</script>
+<script>
+(function(){
+var hd=document.querySelector('.site-nav'),bar=hd.querySelector('.bar'),links=document.getElementById('links'),ink=links.querySelector('.ink'),as=[].slice.call(links.querySelectorAll('a'));
+var menu=document.getElementById('menu'),bg=document.getElementById('burger'),cx=document.getElementById('menu-x');
+function place(a){if(!a){ink.classList.remove('show');return}ink.style.setProperty('--x',a.offsetLeft+14+'px');ink.style.setProperty('--w',a.offsetWidth-28+'px');ink.classList.add('show')}
+function setOn(id){var cur=null;as.forEach(function(a){var on=a.getAttribute('href')==='#'+id;a.classList.toggle('on',on);if(on){a.setAttribute('aria-current','true');cur=a}else a.removeAttribute('aria-current')});place(cur)}
+var ids=['what','how','join','status'],secs=ids.map(function(i){return document.getElementById(i)}).filter(Boolean);
+function spy(){var y=innerHeight*.35,cur='';secs.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)cur=s.id});setOn(cur)}
+var tk=0;function tick(){tk=0;hd.classList.toggle('is-compact',scrollY>40);spy()}
+addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(tick)},{passive:true});addEventListener('resize',function(){spy();if(innerWidth>=880)close(false)});tick();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(spy);
+var main=[].slice.call(document.querySelectorAll('.bwx-strip,header.site-nav,main,footer'));
+function focusables(){return [].slice.call(menu.querySelectorAll('a[href],button'))}
+function open(){menu.classList.add('open');document.body.classList.add('locked');bg.setAttribute('aria-expanded','true');main.forEach(function(e){e.inert=true});cx.focus()}
+function close(back){if(!menu.classList.contains('open'))return;menu.classList.remove('open');document.body.classList.remove('locked');bg.setAttribute('aria-expanded','false');main.forEach(function(e){e.inert=false});if(back!==false)bg.focus()}
+bg.addEventListener('click',open);cx.addEventListener('click',function(){close()});
+menu.addEventListener('click',function(e){if(e.target.closest('a'))close(false)});
+document.addEventListener('keydown',function(e){if(!menu.classList.contains('open'))return;if(e.key==='Escape'){close();return}
+if(e.key==='Tab'){var f=focusables(),a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
+})();
 </script>
 </body>
 </html>
