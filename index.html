@@ -261,6 +261,10 @@ footer{border-top:1px solid var(--line)}
 @keyframes rank{0%{opacity:0;transform:translateY(4px)}20%,80%{opacity:1;transform:none}100%{opacity:0}}
 @keyframes belt{0%{background:var(--b1)}19%{background:var(--b2)}38%{background:var(--b3)}57%{background:var(--b4)}80%,100%{background:var(--b5);box-shadow:0 0 0 1px var(--line-hi),0 0 0 3px rgba(227,38,46,.5)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.ln2,.t-gaku,.hero h1 .ln>span{opacity:1!important;transform:none!important}.enso{stroke-dashoffset:0!important}.belt{background:var(--b5)!important;box-shadow:0 0 0 1px var(--line-hi)!important}.rank span:not(:last-child){display:none}.rank span:last-child{opacity:1!important}}
+.snd{position:absolute;right:0;bottom:clamp(16px,3vw,32px);z-index:20;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.28);background:rgba(7,11,26,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.snd:hover,.snd[aria-pressed="true"]{border-color:#e0262f;background:rgba(224,38,47,.85)}
+.snd:focus-visible{outline:2px solid #7ea0ff;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.snd{display:none}}
 </style>
 
 </head>
@@ -306,6 +310,7 @@ footer{border-top:1px solid var(--line)}
   <video class="hero-video" muted loop playsinline preload="none" poster="/media/hero-dojo-poster.webp" data-src="/media/hero-dojo.mp4" data-src-mobile="/media/hero-dojo-mobile.mp4" data-webm="/media/hero-dojo.webm" data-webm-mobile="/media/hero-dojo-mobile.webm" data-poster-mobile="/media/hero-dojo-mobile-poster.webp"></video>
 </div>
 <div class="wrap hero">
+  <button class="snd" type="button" aria-pressed="false" aria-label="Turn sound on"><span class="snd-i" aria-hidden="true">♪</span><span class="snd-t">Sound on</span></button>
   <div>
     <p class="hero-meta mono"><span>bDojoX</span><span>道場 · ドージョー</span><span>A dojo for companies</span></p>
     <h1><span class="ln"><span>A launchpad</span></span><span class="ln"><span>for startups,</span></span><span class="ln"><span class="r">on chain.</span></span></h1>
@@ -445,6 +450,15 @@ menu.addEventListener('click',function(e){if(e.target.closest('a'))close(false)}
 document.addEventListener('keydown',function(e){if(!menu.classList.contains('open'))return;if(e.key==='Escape'){close();return}
 if(e.key==='Tab'){var f=focusables(),a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
 })();
+</script>
+<script>
+(()=>{const b=document.querySelector('.snd'),v=document.querySelector('.hero-video');if(!b)return;
+const a=new Audio('/media/hero-dojo-music.m4a');a.loop=true;a.preload='none';let on=false;
+const sync=()=>{if(v&&!v.paused&&v.duration){const d=Math.abs(a.currentTime-v.currentTime);if(d>.25)a.currentTime=v.currentTime}};
+b.addEventListener('click',async()=>{on=!on;b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',on?'Turn sound off':'Turn sound on');b.querySelector('.snd-t').textContent=on?'Sound off':'Sound on';
+if(on){try{if(v&&v.currentTime)a.currentTime=v.currentTime;await a.play()}catch(e){on=false;b.setAttribute('aria-pressed',false);b.querySelector('.snd-t').textContent='Sound on'}}else a.pause()});
+if(v){v.addEventListener('timeupdate',()=>{if(on)sync()});v.addEventListener('seeked',()=>{if(on)a.currentTime=v.currentTime})}
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&on)a.pause();else if(on)a.play().catch(()=>{})});})();
 </script>
 </body>
 </html>
