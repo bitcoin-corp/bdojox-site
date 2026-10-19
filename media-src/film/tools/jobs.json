@@ -1,0 +1,296 @@
+[
+ {
+  "model": "black-forest-labs/flux-schnell",
+  "input": {
+   "prompt": "Close-up of a hand pressing a red cinnabar hanko seal stamp onto thick cream paper in an open ledger, a fresh round vermilion ink impression with no characters, red ink paste dish beside it, dramatic low light, blue rim light, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "webp",
+   "output_quality": 90,
+   "seed": 3
+  },
+  "out": "img/draft-hanko.webp"
+ },
+ {
+  "model": "black-forest-labs/flux-schnell",
+  "input": {
+   "prompt": "An old open bound register book on a dark wooden desk, pages ruled with fine red and blue lines, rows of small abstract ink brush marks that are not readable, a sumi brush and inkstone beside it, candle and blue window light, overhead three-quarter view, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "webp",
+   "output_quality": 90,
+   "seed": 3
+  },
+  "out": "img/draft-ledger.webp"
+ },
+ {
+  "model": "black-forest-labs/flux-schnell",
+  "input": {
+   "prompt": "Two masked ninjas in silhouette facing each other with drawn katanas on a wet stone courtyard at night, a red torii gate between them in the distance, rain, puddle reflections of red and blue neon, wide shot, symmetrical, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "webp",
+   "output_quality": 90,
+   "seed": 3
+  },
+  "out": "img/draft-faceoff.webp"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A masked ninja in black, face fully covered by a hood and cloth mask, crouched on the edge of a tiled temple roof at night in heavy rain, katana on the back, red neon glow from below and cobalt blue rim light, city lights bokeh far below, figure on the right third, dark space left, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-ninja_rain.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Extreme close-up of gloved hands drawing a katana from a black lacquered scabbard, three inches of polished steel revealed catching a sharp line of blue light, red silk handle wrap, rain droplets, dark background, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-katana_draw.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A katana blade frozen mid-slash through falling rain, raindrops cut and scattered into glittering spray, a streak of white-blue light along the edge, red neon behind, motion, dramatic dark background, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-slash.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Two katana blades clashing, bright orange-white sparks bursting from the point of contact, extreme close-up, rain, red and blue back light, black background, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-clash.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Two masked ninjas in silhouette facing each other with drawn katanas on a wet stone courtyard at night, a red torii gate between them in the distance, rain, puddle reflections of red and blue neon, wide shot, symmetrical, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-faceoff.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A masked ninja kneeling in seiza on the polished wooden floor of an empty dojo, a sheathed katana laid horizontally in front, seen from behind, tall paper shoji screens glowing red and blue, rain shadows, quiet and monumental, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-kneel.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Interior of a large empty traditional dojo at night, polished wooden floor reflecting light, paper shoji screens glowing cobalt blue, one red lantern, rain visible through an open door, wide symmetrical, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-dojo.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A narrow rain-soaked alley in a Japanese city at night, puddles reflecting vermilion red and cobalt blue neon, steam, a small red torii shrine at the far end, empty, low camera near the wet ground, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-alley.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Cherry blossom petals falling through darkness at night, a few petals lit red and blue by neon, shallow depth of field, rain streaks, deep navy background, abstract and calm, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-blossom.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "An old open bound register book on a dark wooden desk, pages ruled with fine red and blue lines, rows of small abstract ink brush marks that are not readable, a sumi brush and inkstone beside it, candle and blue window light, overhead three-quarter view, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-ledger.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Close-up of a hand pressing a red cinnabar hanko seal stamp onto thick cream paper in an open ledger, a fresh round vermilion ink impression with no characters, red ink paste dish beside it, dramatic low light, blue rim light, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-hanko.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A black lacquered box bound with a thick red silk cord tied in a tight knot, two identical brass keys resting on the lid, two crossed katanas behind it, on dark wood, red and blue light, product still life, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-lock.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A single vermilion-red torii gate with a cobalt-blue crossbeam standing in shallow still water at night, heavy rain, neon red and blue reflections on the water, mist, a huge pale full moon behind, centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "16:9",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/w-torii.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A masked ninja in black, face fully covered by a hood and cloth mask, crouched on the edge of a tiled temple roof at night in heavy rain, katana on the back, red neon glow from below and cobalt blue rim light, city lights bokeh far below, figure on the right third, dark space left, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-ninja_rain.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Extreme close-up of gloved hands drawing a katana from a black lacquered scabbard, three inches of polished steel revealed catching a sharp line of blue light, red silk handle wrap, rain droplets, dark background, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-katana_draw.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A katana blade frozen mid-slash through falling rain, raindrops cut and scattered into glittering spray, a streak of white-blue light along the edge, red neon behind, motion, dramatic dark background, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-slash.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Two masked ninjas in silhouette facing each other with drawn katanas on a wet stone courtyard at night, a red torii gate between them in the distance, rain, puddle reflections of red and blue neon, wide shot, symmetrical, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-faceoff.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Close-up of a hand pressing a red cinnabar hanko seal stamp onto thick cream paper in an open ledger, a fresh round vermilion ink impression with no characters, red ink paste dish beside it, dramatic low light, blue rim light, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-hanko.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A single vermilion-red torii gate with a cobalt-blue crossbeam standing in shallow still water at night, heavy rain, neon red and blue reflections on the water, mist, a huge pale full moon behind, centred, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-torii.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A masked ninja kneeling in seiza on the polished wooden floor of an empty dojo, a sheathed katana laid horizontally in front, seen from behind, tall paper shoji screens glowing red and blue, rain shadows, quiet and monumental, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-kneel.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "A black lacquered box bound with a thick red silk cord tied in a tight knot, two identical brass keys resting on the lid, two crossed katanas behind it, on dark wood, red and blue light, product still life, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-lock.png"
+ },
+ {
+  "model": "black-forest-labs/flux-1.1-pro",
+  "input": {
+   "prompt": "Cherry blossom petals falling through darkness at night, a few petals lit red and blue by neon, shallow depth of field, rain streaks, deep navy background, abstract and calm, vertical composition, subject centred, no text, no letters, no writing, no logos, no visible faces, cinematic still from a high-budget Japanese cyberpunk film, deep navy night palette with vermilion red (#e0262f) and cobalt blue (#3a6bf0) light, white highlights, anamorphic, fine film grain, sharp",
+   "aspect_ratio": "9:16",
+   "output_format": "png",
+   "safety_tolerance": 2,
+   "seed": 11
+  },
+  "out": "img/t-blossom.png"
+ },
+ {
+  "model": "stability-ai/stable-audio-2.5",
+  "input": {
+   "prompt": "Cinematic cyberpunk Japanese trailer music, 120 BPM, 4/4, driving taiko drum ensemble hits, fast shamisen riff and koto plucks, deep pulsing analog synth bass, sharp sword-swish risers, big taiko impacts on the downbeat every bar, builds to a huge final hit at 28 seconds then ringing tail, energetic, heroic, no vocals",
+   "duration": 34
+  },
+  "out": "audio/track-a.mp3"
+ },
+ {
+  "version": "671ac645ce5e552cc63a54a2bbff63fcf798043055d2dac5fc9e36a837eedcfb",
+  "input": {
+   "prompt": "Cinematic cyberpunk Japanese trailer music, 120 BPM, 4/4, driving taiko drum ensemble hits, fast shamisen riff and koto plucks, deep pulsing analog synth bass, sharp sword-swish risers, big taiko impacts on the downbeat every bar, builds to a huge final hit at 28 seconds then ringing tail, energetic, heroic, no vocals",
+   "duration": 30,
+   "model_version": "stereo-large",
+   "output_format": "wav",
+   "normalization_strategy": "peak"
+  },
+  "out": "audio/track-b.wav"
+ }
+]

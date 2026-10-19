@@ -139,7 +139,7 @@ section[id]{scroll-margin-top:84px}
 .herozone{position:relative;isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden;background:var(--bg)}
 .hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
-.hero-media video{opacity:0;transition:opacity 1s ease}.hero-media video.on{opacity:.5}
+.hero-media video{opacity:0;transition:opacity 1s ease}.hero-media video.on{opacity:.62}
 .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,9,15,.92) 0%,rgba(7,9,15,.55) 55%,rgba(7,9,15,.2) 100%),linear-gradient(180deg,transparent 70%,var(--bg) 100%)}
 @media (max-width:899px){.hero-media::after{background:linear-gradient(180deg,rgba(7,9,15,.85),rgba(7,9,15,.7) 60%,var(--bg))}}
 .band{position:relative;margin:0 0 clamp(28px,4vw,48px);border:1px solid var(--line-hi);aspect-ratio:21/8;overflow:hidden;background:var(--panel)}
@@ -303,7 +303,7 @@ footer{border-top:1px solid var(--line)}
 <div class="herozone">
 <div class="hero-media" aria-hidden="true">
   <img class="hero-poster" src="/img/hero.webp" alt="" width="1600" height="900" decoding="async" fetchpriority="low">
-  <video class="hero-video" muted loop playsinline preload="none" poster="/img/hero.webp" data-src="" data-src-mobile=""></video>
+  <video class="hero-video" muted loop playsinline preload="none" poster="/media/hero-dojo-poster.webp" data-src="/media/hero-dojo.mp4" data-src-mobile="/media/hero-dojo-mobile.mp4" data-webm="/media/hero-dojo.webm" data-webm-mobile="/media/hero-dojo-mobile.webm" data-poster-mobile="/media/hero-dojo-mobile-poster.webp"></video>
 </div>
 <div class="wrap hero">
   <div>
@@ -404,6 +404,7 @@ footer{border-top:1px solid var(--line)}
   <div class="wrap foot">
     <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="108" height="25" style="height:25px"></a>
     <nav aria-label="Footer">
+      <a href="/watch">Watch the film</a>
       <a href="https://bwalletx.com">bWalletX home</a>
       <a href="https://bwalletx.com/privacy">Privacy</a>
       <a href="https://bwalletx.com/terms">Terms</a>
@@ -415,6 +416,7 @@ footer{border-top:1px solid var(--line)}
 <script>
 (function(){var v=document.querySelector('.hero-video');if(!v||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var m=matchMedia('(max-width:899px)').matches,u=(m&&v.dataset.srcMobile)||v.dataset.src,c=navigator.connection;if(!u||(c&&c.saveData))return;
+var wb=m?v.dataset.webmMobile:v.dataset.webm;if(wb&&v.canPlayType('video/webm; codecs="vp9"'))u=wb;if(m&&v.dataset.posterMobile)v.poster=v.dataset.posterMobile;
 function go(){v.src=u;v.play().then(function(){v.classList.add('on')}).catch(function(){})}
 if('IntersectionObserver' in window){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){o.disconnect();go()}});o.observe(v)}else go()})();
 </script>

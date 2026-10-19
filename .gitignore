@@ -3,3 +3,5 @@ node_modules
 .DS_Store
 .env*
 media-src/img/draft-*
+media-src/film/work/
+media-src/film/img/draft-*
