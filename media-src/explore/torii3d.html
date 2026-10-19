@@ -16,11 +16,11 @@ const scene = new THREE.Scene();
 // studio environment: dark room with soft boxes + coloured strips (reflections on lacquer / metal)
 const env = new THREE.Scene(); env.background = new THREE.Color(0x05070f);
 const panel = (c, i, w, h, p, rot) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(i), side: 2 })); m.position.set(...p); m.rotation.set(...rot); env.add(m); };
-panel(0xffffff, 6, 18, 8, [0, 14, 4], [Math.PI / 2, 0, 0]);
-panel(0x6f98ff, 5, 4, 22, [-16, 4, 2], [0, Math.PI / 2, 0]);
+panel(0xffffff, 3.2, 18, 8, [0, 14, 4], [Math.PI / 2, 0, 0]);
+panel(0x6f98ff, 4.5, 5, 22, [-14, 5, 4], [0, Math.PI / 2, 0]);
 panel(0xff6a4a, 4, 3, 18, [15, 5, 6], [0, -Math.PI / 2, 0]);
 panel(0xffffff, 3, 14, 1.2, [0, 6, -14], [0, 0, 0]);
-panel(0x9fd0ff, 4, 1, 16, [8, 4, 14], [0, Math.PI, 0]);
+panel(0x9fd0ff, 9, 8, 6, [4, 6, 16], [0, Math.PI, 0]);
 scene.environment = new THREE.PMREMGenerator(r).fromScene(env, 0.02).texture;
 
 // brushed-metal roughness texture
@@ -29,33 +29,33 @@ g.fillStyle = '#7a7a7a'; g.fillRect(0, 0, 1024, 256);
 for (let i = 0; i < 2600; i++) { const v = 90 + Math.random() * 90 | 0; g.fillStyle = `rgb(${v},${v},${v})`; g.globalAlpha = .5; g.fillRect(Math.random() * 1024, Math.random() * 256, 40 + Math.random() * 300, 1); }
 const brushed = new THREE.CanvasTexture(cv); brushed.wrapS = brushed.wrapT = THREE.RepeatWrapping;
 
-const lacquer = new THREE.MeshPhysicalMaterial({ color: 0xd8141c, roughness: .34, metalness: 0, clearcoat: 1, clearcoatRoughness: .06, envMapIntensity: 1.25, sheen: .6, sheenColor: new THREE.Color(0xff7a7a) });
+const lacquer = new THREE.MeshPhysicalMaterial({ color: 0xd8141c, roughness: .34, metalness: 0, clearcoat: 1, clearcoatRoughness: .06, envMapIntensity: .8, sheen: .2, sheenColor: new THREE.Color(0xff7a7a) });
 const navy = new THREE.MeshPhysicalMaterial({ color: 0x0a1030, roughness: .28, metalness: .1, clearcoat: 1, clearcoatRoughness: .08, envMapIntensity: 1.4 });
-const blue = new THREE.MeshPhysicalMaterial({ color: 0x4a78ff, metalness: 1, roughness: .42, roughnessMap: brushed, anisotropy: .85, envMapIntensity: 1.5 });
+const blue = new THREE.MeshPhysicalMaterial({ color: 0x5d88ff, metalness: .55, roughness: .34, roughnessMap: brushed, anisotropy: .85, envMapIntensity: 1.5 });
 const stone = new THREE.MeshStandardMaterial({ color: 0x0b0d16, roughness: .55, metalness: .3 });
 
 const torii = new THREE.Group();
 const ext = (shape, depth, bev = .07) => { const gm = new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: true, bevelThickness: bev, bevelSize: bev, bevelSegments: 5, curveSegments: 40 }); gm.translate(0, 0, -depth / 2); return gm; };
 // pillars
 for (const s of [-1, 1]) {
-  const p = new THREE.Mesh(new THREE.CylinderGeometry(.36, .47, 8, 64), lacquer); p.position.set(s * 3.15, 4.2, 0); p.rotation.z = -s * .028; torii.add(p);
-  const b = new THREE.Mesh(new THREE.CylinderGeometry(.56, .66, .5, 64), stone); b.position.set(s * 3.25, .25, 0); torii.add(b);
-  const ring = new THREE.Mesh(new THREE.TorusGeometry(.44, .05, 16, 64), navy); ring.rotation.x = Math.PI / 2; ring.position.set(s * 3.22, .62, 0); torii.add(ring);
+  const p = new THREE.Mesh(new THREE.CylinderGeometry(.46, .6, 7.1, 64), lacquer); p.position.set(s * 3.3, 3.75, 0); p.rotation.z = -s * .028; torii.add(p);
+  const b = new THREE.Mesh(new THREE.CylinderGeometry(.72, .84, .5, 64), stone); b.position.set(s * 3.4, .25, 0); torii.add(b);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(.58, .05, 16, 64), navy); ring.rotation.x = Math.PI / 2; ring.position.set(s * 3.37, .62, 0); torii.add(ring);
 }
 // nuki (lower tie beam) + gakuzuka strut: brushed blue metal
-const nuki = new THREE.Mesh(ext(new THREE.Shape().moveTo(-4.7, -.24).lineTo(4.7, -.24).lineTo(4.7, .24).lineTo(-4.7, .24).closePath(), .5, .05), blue); nuki.position.y = 6.05; torii.add(nuki);
-const strut = new THREE.Mesh(ext(new THREE.Shape().moveTo(-.28, 0).lineTo(.28, 0).lineTo(.28, 1.5).lineTo(-.28, 1.5).closePath(), .38, .04), blue); strut.position.y = 6.2; torii.add(strut);
+const nuki = new THREE.Mesh(ext(new THREE.Shape().moveTo(-4.9, -.28).lineTo(4.9, -.28).lineTo(4.9, .28).lineTo(-4.9, .28).closePath(), .5, .05), blue); nuki.position.y = 4.9; torii.add(nuki);
+const strut = new THREE.Mesh(ext(new THREE.Shape().moveTo(-.28, 0).lineTo(.28, 0).lineTo(.28, 1.4).lineTo(-.28, 1.4).closePath(), .38, .04), blue); strut.position.y = 5.1; torii.add(strut);
 // shimaki (cap under the kasagi): navy lacquer
-const sh = new THREE.Shape(); { const N = 40, pts = []; for (let i = 0; i <= N; i++) { const x = -5.55 + 11.1 * i / N; pts.push([x, 8.0 + .32 * Math.pow(Math.abs(x) / 5.55, 2.4)]); } sh.moveTo(pts[0][0], 7.62); pts.forEach(p => sh.lineTo(p[0], p[1])); sh.lineTo(5.55, 7.62); sh.closePath(); }
+const sh = new THREE.Shape(); { const N = 40, pts = []; for (let i = 0; i <= N; i++) { const x = -5.75 + 11.5 * i / N; pts.push([x, 6.95 + .28 * Math.pow(Math.abs(x) / 5.75, 2.4)]); } sh.moveTo(pts[0][0], 6.55); pts.forEach(p => sh.lineTo(p[0], p[1])); sh.lineTo(5.75, 6.55); sh.closePath(); }
 const shim = new THREE.Mesh(ext(sh, .86, .05), navy); torii.add(shim);
 // kasagi (top beam, upswept ends): red lacquer
-const ks = new THREE.Shape(); { const N = 60, top = [], bot = []; for (let i = 0; i <= N; i++) { const x = -6.2 + 12.4 * i / N, t = Math.pow(Math.abs(x) / 6.2, 2.1); top.push([x, 8.62 + .95 * t]); bot.push([x * .965, 8.12 + .5 * t]); } ks.moveTo(bot[0][0], bot[0][1]); top.forEach(p => ks.lineTo(p[0], p[1])); bot.reverse().forEach(p => ks.lineTo(p[0], p[1])); ks.closePath(); }
+const ks = new THREE.Shape(); { const N = 60, top = [], bot = []; for (let i = 0; i <= N; i++) { const x = -6.2 + 12.4 * i / N, t = Math.pow(Math.abs(x) / 6.2, 2.1); top.push([x, 7.75 + .62 * t]); bot.push([x * .96, 7.15 + .36 * t]); } ks.moveTo(bot[0][0], bot[0][1]); top.forEach(p => ks.lineTo(p[0], p[1])); bot.reverse().forEach(p => ks.lineTo(p[0], p[1])); ks.closePath(); }
 const kas = new THREE.Mesh(ext(ks, 1.05, .08), lacquer); torii.add(kas);
 torii.rotation.y = -.5; torii.rotation.x = .0;
 scene.add(torii);
 
 // lights: warm key, blue rim from behind, red kicker
-const key = new THREE.DirectionalLight(0xfff0e0, 2.6); key.position.set(6, 12, 10); scene.add(key);
+const key = new THREE.DirectionalLight(0xfff0e0, 1.7); key.position.set(6, 12, 10); scene.add(key);
 const rim = new THREE.DirectionalLight(0x6f9bff, 5.5); rim.position.set(-9, 6, -8); scene.add(rim);
 const kick = new THREE.DirectionalLight(0xff4a3a, 1.6); kick.position.set(10, 2, -4); scene.add(kick);
 scene.add(new THREE.AmbientLight(0x1a2450, .6));
@@ -63,7 +63,7 @@ scene.add(new THREE.AmbientLight(0x1a2450, .6));
 if (mode === 'scene') {
   const mir = torii.clone(); mir.scale.y = -1; scene.add(mir);
   const gc = document.createElement('canvas'); gc.width = gc.height = 512; const gx = gc.getContext('2d');
-  const gr = gx.createRadialGradient(256, 256, 20, 256, 256, 256); gr.addColorStop(0, 'rgba(6,9,22,.55)'); gr.addColorStop(.55, 'rgba(6,9,22,.86)'); gr.addColorStop(1, 'rgba(6,9,22,1)');
+  const gr = gx.createRadialGradient(256, 256, 20, 256, 256, 256); gr.addColorStop(0, 'rgba(6,9,22,.55)'); gr.addColorStop(.55, 'rgba(6,9,22,.86)'); gr.addColorStop(.92, 'rgba(6,9,22,0)');
   gx.fillStyle = gr; gx.fillRect(0, 0, 512, 512);
   const fl = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(gc), transparent: true, depthWrite: false })); fl.rotation.x = -Math.PI / 2; fl.position.y = .02; scene.add(fl);
   // rain streaks
@@ -74,7 +74,7 @@ if (mode === 'scene') {
   for (let i = 0; i < 9; i++) { const rr = .25 + Math.random() * .7, m = new THREE.Mesh(new THREE.RingGeometry(rr, rr + .02, 64), new THREE.MeshBasicMaterial({ color: 0x9fb8ff, transparent: true, opacity: .22, side: 2 })); m.rotation.x = -Math.PI / 2; m.position.set((Math.random() - .5) * 9, .03, 1 + Math.random() * 4); m.scale.z = .5; scene.add(m); }
 }
 const cam = new THREE.PerspectiveCamera(mode === 'scene' ? 30 : 26, W / H, .1, 200);
-if (mode === 'scene') { cam.position.set(4, 2.2, 24); cam.lookAt(0, 3.1, 0); } else { cam.position.set(4.5, 3.6, 25); cam.lookAt(0, 4.9, 0); }
+if (mode === 'scene') { cam.position.set(6, 1.6, 36); cam.lookAt(0, 4.4, 0); } else { cam.position.set(6, 1.4, 33); cam.lookAt(0, 4.3, 0); }
 r.render(scene, cam);
 window.__done = true;
 </script>
