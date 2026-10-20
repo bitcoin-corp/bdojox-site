@@ -1,1 +1,6 @@
-{ "cleanUrls": true }
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/:path*", "has": [{ "type": "host", "value": "www.bdojox.com" }], "destination": "https://bdojox.com/:path*", "permanent": true }
+  ]
+}
