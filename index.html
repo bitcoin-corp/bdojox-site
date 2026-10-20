@@ -534,7 +534,10 @@ const gate=q('#gate'),film=q('#film'),fv=q('#film-v'),hv=q('.hero-video'),snd=q(
 const cn=navigator.connection,calm=matchMedia('(prefers-reduced-motion: reduce)').matches||!!(cn&&cn.saveData);
 const mob=()=>matchMedia('(max-width:899px)').matches;
 const rem=()=>{try{localStorage.setItem('bdojox-intro','1')}catch(e){}};
-const a=new Audio('/media/hero-dojo-music.m4a');a.loop=true;a.preload=H.classList.contains('gate')?'auto':'none';
+const a=new Audio('/media/hero-dojo-music.m4a');a.loop=true;
+// Keep the music near the video without hard-seeking it every timeupdate: on iPhone the two clocks drift and the
+// video stalls to buffer, and each seek is an audible skip. Only re-sync a real drift, rarely, and never mid-buffer.
+let lastSync=0;const nudge=v=>{if(!v||v.readyState<3||Date.now()-lastSync<4000)return;if(Math.abs(a.currentTime-v.currentTime)>1.2){a.currentTime=v.currentTime;lastSync=Date.now()}};a.preload=H.classList.contains('gate')?'auto':'none';
 let on=false,filmOn=false;
 const setSnd=v=>{on=v;if(!snd)return;snd.setAttribute('aria-pressed',v);snd.setAttribute('aria-label',v?'Turn sound off':'Turn sound on');snd.querySelector('.snd-t').textContent=v?'Sound off':'Sound on'};
 const music=async v=>{if(v){try{await a.play();setSnd(true)}catch(e){setSnd(false)}}else{a.pause();setSnd(false)}};
@@ -573,10 +576,10 @@ if(watch){watch.hidden=false;watch.querySelector('span').textContent=calm?'Play 
 fskip.addEventListener('click',settle);
 mute.addEventListener('click',()=>{a.muted=!a.muted;const m=a.muted;mute.setAttribute('aria-pressed',m);mute.setAttribute('aria-label',m?'Unmute sound':'Mute sound');mute.querySelector('.f-t').textContent=m?'Muted':'Sound on'});
 fv.addEventListener('ended',settle);fv.addEventListener('error',()=>{if(filmOn)settle()});
-fv.addEventListener('playing',()=>{if(filmOn&&Math.abs(a.currentTime-fv.currentTime)>.2)a.currentTime=fv.currentTime});
-fv.addEventListener('timeupdate',()=>{if(!filmOn)return;if(fv.duration)prog.style.transform='scaleX('+Math.min(1,fv.currentTime/fv.duration)+')';if(on&&!a.paused&&Math.abs(a.currentTime-fv.currentTime)>.3)a.currentTime=fv.currentTime});
+fv.addEventListener('playing',()=>{if(filmOn)nudge(fv)});
+fv.addEventListener('timeupdate',()=>{if(!filmOn)return;if(fv.duration)prog.style.transform='scaleX('+Math.min(1,fv.currentTime/fv.duration)+')';if(on&&!a.paused)nudge(fv)});
 D.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(filmOn)settle();else skipGate()});
-if(snd){const sync=()=>{if(hv&&!hv.paused&&hv.duration){const d=Math.abs(a.currentTime-hv.currentTime);if(d>.25)a.currentTime=hv.currentTime}};
+if(snd){const sync=()=>{if(hv&&!hv.paused&&hv.duration)nudge(hv)};
  snd.addEventListener('click',()=>{if(!on){if(hv&&hv.currentTime)a.currentTime=hv.currentTime;a.muted=false}music(!on)});
  if(hv){hv.addEventListener('timeupdate',()=>{if(on&&!filmOn)sync()});hv.addEventListener('seeked',()=>{if(on&&!filmOn)a.currentTime=hv.currentTime})}}
 D.addEventListener('visibilitychange',()=>{if(D.hidden){if(on)a.pause();if(filmOn)fv.pause()}else{if(on)a.play().catch(()=>{});if(filmOn)fv.play().catch(()=>{})}});
