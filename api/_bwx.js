@@ -82,7 +82,10 @@ export function checkSignature(body, key) {
 }
 
 export function sameOrigin(req) {
-  return originAllowed(req.headers.get('origin'), siteOrigin());
+  // www.bdojox.com serves the same site; accept it too (the signed message still names the apex)
+  const o = req.headers.get('origin');
+  if (originAllowed(o, siteOrigin())) return true;
+  try { return new URL(String(o)).host === 'www.' + new URL(siteOrigin()).host; } catch { return false; }
 }
 
 /** The wallet's bWalletX name (alice@bwalletx.com), or null. Public endpoint; fails quiet. */
