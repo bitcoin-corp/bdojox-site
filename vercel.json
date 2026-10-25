@@ -1,6 +1,46 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/:path*", "has": [{ "type": "host", "value": "www.bdojox.com" }], "destination": "https://bdojox.com/:path*", "permanent": true }
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bdojox.com"
+        }
+      ],
+      "destination": "https://bdojox.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bdojox.com"
+        }
+      ],
+      "destination": "https://bdojox.com/:path*",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/bwalletx-theme.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300"
+        }
+      ]
+    }
   ]
 }

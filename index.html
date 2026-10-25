@@ -341,6 +341,7 @@ html.hold main *{animation-play-state:paused!important}
       <a href="#join">Join</a>
       <a href="#status">Status</a>
     </nav>
+    <span class="bwx-slot" data-bwx-connect data-fg="#ff5a60"></span>
     <a class="nav-cta" href="https://bwalletx.com/get">Get bWalletX <span class="go" aria-hidden="true">&rarr;</span></a>
     <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
   </div>
@@ -588,5 +589,7 @@ D.addEventListener('visibilitychange',()=>{if(D.hidden){if(on)a.pause();if(filmO
 })();
 </script>
 <script type="module" src="/js/connect.js"></script>
+<script src="https://unpkg.com/@bwalletx/connect@0.5.0/dist/bwalletx-connect.global.js" integrity="sha384-1XiN/accJppMI7qXUHzNrUAdUWIotONkjNy7rZBrwcvPxDCFk1yC83JY2c4LZ8gg" crossorigin="anonymous"></script>
+<script src="/bwx-connect.js"></script>
 </body>
 </html>

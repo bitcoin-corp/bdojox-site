@@ -1,0 +1,11 @@
+{
+  "v": 2,
+  "name": "bDojoX",
+  "mode": "dark",
+  "accent": "#E3262E",
+  "accentHi": "#FF5A60",
+  "bg": "#07090F",
+  "surface": "#0D1019",
+  "text": "#EFECE3",
+  "logo": "/logo.svg"
+}
