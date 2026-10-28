@@ -26,7 +26,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/connect.css">
 <script>
 (function(){try{var d=document.documentElement,r=matchMedia('(prefers-reduced-motion: reduce)').matches,c=navigator.connection,sv=!!(c&&c.saveData),seen=false;try{seen=localStorage.getItem('bdojox-intro')==='1'}catch(e){}
 d.classList.add('js');if(!r&&!sv&&(/[?&]intro=1/.test(location.search)||!seen))d.classList.add('gate','hold')}catch(e){}})();
@@ -342,7 +341,6 @@ html.hold main *{animation-play-state:paused!important}
       <a href="#status">Status</a>
     </nav>
     <span class="bwx-slot" data-bwx-connect data-fg="#ff5a60"></span>
-    <a class="nav-cta" href="https://bwalletx.com/get">Get bWalletX <span class="go" aria-hidden="true">&rarr;</span></a>
     <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
   </div>
 </header>
@@ -358,8 +356,6 @@ html.hold main *{animation-play-state:paused!important}
     <li><a href="#status"><span class="chip" style="--c:var(--b5);box-shadow:0 0 0 1px var(--line-hi)"></span><b>Status</b><span class="k" aria-hidden="true">四</span></a></li>
   </ol>
   <div class="menu-foot">
-    <a class="btn btn-red" href="https://bwalletx.com/get">Get bWalletX</a>
-    <span class="hz" aria-hidden="true"></span>
     <span class="mono"><span>道場 · ドージョー</span><span>Part of bWalletX</span></span>
   </div>
 </div>
@@ -588,7 +584,6 @@ if(snd){const sync=()=>{if(hv&&!hv.paused&&hv.duration)nudge(hv)};
 D.addEventListener('visibilitychange',()=>{if(D.hidden){if(on)a.pause();if(filmOn)fv.pause()}else{if(on)a.play().catch(()=>{});if(filmOn)fv.play().catch(()=>{})}});
 })();
 </script>
-<script type="module" src="/js/connect.js"></script>
 <script src="https://unpkg.com/@bwalletx/connect@0.5.0/dist/bwalletx-connect.global.js" integrity="sha384-1XiN/accJppMI7qXUHzNrUAdUWIotONkjNy7rZBrwcvPxDCFk1yC83JY2c4LZ8gg" crossorigin="anonymous"></script>
 <script src="/bwx-connect.js"></script>
 </body>
