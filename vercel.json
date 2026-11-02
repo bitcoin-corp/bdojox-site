@@ -2,6 +2,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/watch",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -42,5 +47,11 @@
         }
       ]
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "*": false,
+      "main": true
+    }
+  }
 }

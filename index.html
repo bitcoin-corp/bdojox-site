@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>bDojoX · A launchpad for startups, on chain</title>
-<meta name="description" content="bDojoX is a launchpad for startups on chain: form your company, raise in BSV and MNEE, and keep your shares as registered tokens. Keep your share register in bShares, held in your shareholders' own bWalletX, locked 2-of-2.">
+<title>bDojoX · Your company's register, on chain</title>
+<meta name="description" content="bDojoX is a training hall for company registers: keep your company's register of members on chain with bShares (bsharesx.com). The register stays the legal record. bDojoX does not offer, sell or recommend any shares.">
 <link rel="canonical" href="https://bdojox.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bdojox.com/">
 <meta property="og:site_name" content="bDojoX">
-<meta property="og:title" content="bDojoX · A launchpad for startups, on chain">
-<meta property="og:description" content="bDojoX is a launchpad for startups on chain: form your company, raise in BSV and MNEE, and keep your shares as registered tokens. Your register, mirrored on chain and held in your shareholders' own wallets, locked 2-of-2.">
-<meta property="og:image" content="https://bdojox.com/og-bdojox.png">
+<meta property="og:title" content="bDojoX · Your company's register, on chain">
+<meta property="og:description" content="bDojoX is a training hall for company registers: keep your company's register of members on chain with bShares (bsharesx.com). The register stays the legal record. bDojoX does not offer, sell or recommend any shares.">
+<meta property="og:image" content="https://bdojox.com/og-bdojox-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="bDojoX: a launchpad for startups, on chain. A red and blue torii gate inside a white brush ensō, with a red 道 seal stamped at the lower right.">
+<meta property="og:image:alt" content="bDojoX: your company's register, on chain. A red and blue torii gate inside a white brush ensō, with a red 道 seal stamped at the lower right.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="bDojoX · A launchpad for startups, on chain">
-<meta name="twitter:description" content="bDojoX is a launchpad for startups on chain: form your company, raise in BSV and MNEE, and keep your shares as registered tokens. Your register, mirrored on chain and held in your shareholders' own wallets, locked 2-of-2.">
-<meta name="twitter:image" content="https://bdojox.com/og-bdojox.png">
+<meta name="twitter:title" content="bDojoX · Your company's register, on chain">
+<meta name="twitter:description" content="bDojoX is a training hall for company registers: keep your company's register of members on chain with bShares (bsharesx.com). The register stays the legal record. bDojoX does not offer, sell or recommend any shares.">
+<meta name="twitter:image" content="https://bdojox.com/og-bdojox-v2.png">
 <meta name="theme-color" content="#07090f">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -27,8 +27,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Big+Shoulders+Display:wght@800;900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
 <script>
-(function(){try{var d=document.documentElement,r=matchMedia('(prefers-reduced-motion: reduce)').matches,c=navigator.connection,sv=!!(c&&c.saveData),seen=false;try{seen=localStorage.getItem('bdojox-intro')==='1'}catch(e){}
-d.classList.add('js');if(!r&&!sv&&(/[?&]intro=1/.test(location.search)||!seen))d.classList.add('gate','hold')}catch(e){}})();
+/* Intro film gate off (CEO ruling 2 Nov 2026): the film's titles (LAUNCH, RAISE IN BSV + MNEE) promote raising.
+   Without the 'gate' and 'hold' classes, #gate stays hidden and the page plays its own animations straight away. */
+(function(){try{document.documentElement.classList.add('js')}catch(e){}})();
 </script>
 <style>
 :root{
@@ -264,7 +265,8 @@ footer{border-top:1px solid var(--line)}
 .foot nav{display:flex;flex-wrap:wrap;gap:8px 24px}
 .foot nav a{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 0}
 .foot nav a:hover{color:var(--ink)}
-.legal{margin:0 0 48px;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:13px;max-width:62em}
+.legal{margin:0;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:13px;max-width:62em}
+.legal.co{margin:8px 0 48px;padding-top:0;border-top:0}
 
 @keyframes rise{from{transform:translateY(105%)}to{transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -364,35 +366,35 @@ html.hold main *{animation-play-state:paused!important}
 <div class="herozone">
 <div class="hero-media" aria-hidden="true">
   <img class="hero-poster" src="/img/hero.webp" alt="" width="1600" height="900" decoding="async" fetchpriority="low">
-  <video class="hero-video" muted loop playsinline preload="none" poster="/media/hero-dojo-poster.webp" data-src="/media/hero-dojo.mp4" data-src-mobile="/media/hero-dojo-mobile.mp4" data-webm="/media/hero-dojo.webm" data-webm-mobile="/media/hero-dojo-mobile.webm" data-poster-mobile="/media/hero-dojo-mobile-poster.webp"></video>
+  <!-- Hero film removed (CEO ruling 2 Nov 2026): it carries LAUNCH / RAISE IN BSV + MNEE titles. The still above stays. -->
 </div>
 <div class="wrap hero">
   <button class="snd" type="button" aria-pressed="false" aria-label="Turn sound on"><span class="snd-i" aria-hidden="true">♪</span><span class="snd-t">Sound on</span></button>
   <div>
     <p class="hero-meta mono"><span>bDojoX</span><span>道場 · ドージョー</span><span>A dojo for companies</span></p>
-    <h1><span class="ln"><span>A launchpad</span></span><span class="ln"><span>for startups,</span></span><span class="ln"><span class="r">on chain.</span></span></h1>
+    <h1><span class="ln"><span>Your company's</span></span><span class="ln"><span>register,</span></span><span class="ln"><span class="r">on chain.</span></span></h1>
     <p class="slogan">May the best ideas win.</p>
-    <p class="strap">Raise in BSV and MNEE · Registered shares as tokens · Every company deserves a black belt register</p>
-    <p class="lede">bDojoX is a launchpad for startups on chain: form your company, raise in BSV and MNEE, and keep your shares as registered tokens. Keep your register in bShares; your shareholders hold in their own bWalletX, locked 2-of-2. Step by step, belt by belt.</p>
+    <p class="strap">Register of members · Kept in bShares · Every company deserves a black belt register</p>
+    <p class="lede">bDojoX is a training hall for company registers. Keep your company's register of members in <a href="https://bsharesx.com">bShares</a>, mirrored on chain entry for entry, with the register as the legal record. Step by step, belt by belt.</p>
     <div class="ctas">
       <a class="btn btn-red" href="#how">How it works</a>
       <a class="btn btn-line" href="#join">Bring your company</a>
-      <button class="btn btn-line" type="button" id="watch" hidden><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span>Watch the film</span></button>
+      <a class="btn btn-line" href="https://bsharesx.com">Go to bSharesX</a>
     </div>
-    <p class="hint">bWalletX and multisig locks are <b>live</b>.<br>Company registers in bShares are <b>in testing</b>.</p>
+    <p class="hint">bWalletX is <b>live</b>.<br>Company registers in bShares are <b>in testing</b>.</p>
   </div>
 
-  <figure class="plate" role="img" aria-label="A 3D red and blue torii gate inside a white brush enso with a red do (way) seal. Below it a belt changes colour from white to black as an example company moves from token launch to partnership shares, a registered company, capital raised and a public listing.">
+  <figure class="plate" role="img" aria-label="A 3D red and blue torii gate inside a white brush enso with a red do (way) seal. Below it a belt changes colour from white to black as an example company's register moves from set up, to mirrored on chain, to directors' approval, to each member seeing their entry, to a black belt register.">
     <div class="plate-bar mono"><span>Plate 01</span><span>Register &rarr; Belt</span></div>
     <div class="art"><span class="reg a" aria-hidden="true"></span><span class="reg b" aria-hidden="true"></span>
       <div class="mk3" aria-hidden="true"><img class="m-enso" src="/brand/enso.svg" alt="" width="380" height="380" decoding="async"><img class="m-torii" src="/brand/torii-3d.webp" alt="" width="380" height="380" decoding="async"><img class="m-seal" src="/brand/seal.svg" alt="" width="380" height="380" decoding="async"></div></div>
     <div class="belt-row"><span class="mono">Belt</span><div class="belt" aria-hidden="true"></div><div class="ruler" aria-hidden="true"></div>
-      <div class="rank" aria-hidden="true"><span>01 · White · token launched</span><span>02 · Yellow · partnership shares locked</span><span>03 · Green · registered company</span><span>04 · Blue · capital raised</span><span>05 · Black · publicly listed</span></div></div>
+      <div class="rank" aria-hidden="true"><span>01 · White · register set up</span><span>02 · Yellow · mirrored on chain</span><span>03 · Green · directors approve</span><span>04 · Blue · members see their entry</span><span>05 · Black · black belt register</span></div></div>
     <div class="ledger">
       <div class="ledger-h"><span>Acme Bakery Ltd</span><em>Example</em></div>
-      <div class="ln2"><i>001</i><span><b>$jane</b> · 1,200 ordinary</span><span class="lk">2-of-2</span></div>
-      <div class="ln2"><i>002</i><span><b>$amir</b> · 800 ordinary</span><span class="lk">2-of-2</span></div>
-      <div class="ln2"><i>003</i><span><b>$li</b> · 500 ordinary</span><span class="lk">2-of-2</span></div>
+      <div class="ln2"><i>001</i><span><b>$jane</b> · 1,200 ordinary</span><span class="lk">Approved</span></div>
+      <div class="ln2"><i>002</i><span><b>$amir</b> · 800 ordinary</span><span class="lk">Approved</span></div>
+      <div class="ln2"><i>003</i><span><b>$li</b> · 500 ordinary</span><span class="lk">Approved</span></div>
     </div>
   </figure>
 </div>
@@ -403,31 +405,30 @@ html.hold main *{animation-play-state:paused!important}
   <figure class="band body" style="display:block"><img src="/img/enso.webp" alt="A white ink enso brush circle on dark paper, crossed by a thin red line and a thin blue line." width="1600" height="900" loading="lazy" decoding="async"><figcaption class="mono">Fig. 01 · Enso</figcaption></figure>
   <div class="body cols">
     <article><span class="mono">01</span><h3>For any company</h3><p>Three friends with a shop or a firm with hundreds of members. The company keeps its own register; bShares is the software it keeps it with.</p></article>
-    <article><span class="mono">02</span><h3>Held by your shareholders</h3><p>Each holder sees their shares in their own bWalletX, in a 2-of-2 lock: the holder's key and the company's, so nothing moves unless both agree.</p></article>
-    <article><span class="mono">03</span><h3>Form it, then raise</h3><p>Starting out? bDojoX is built to help a new company form on chain and, in time, raise capital in BSV and MNEE from stakeholders' wallets, with the care securities need.</p></article>
+    <article><span class="mono">02</span><h3>The register is the record</h3><p>The register of members is the legal record. The company keeps it, as company law requires, and its directors approve every entry. The copy on chain follows it.</p></article>
+    <article><span class="mono">03</span><h3>Kept in bShares</h3><p>bShares is the software that keeps the register, inside bWalletX. Read how it works at <a href="https://bsharesx.com">bsharesx.com</a>.</p></article>
   </div>
 </div></section>
 
 <section id="how"><div class="wrap">
-  <div class="sh"><span class="num" aria-hidden="true">二</span><div class="sh-main"><p class="kicker mono">How it works for a company</p><h2>Five belts, <span class="red">five stages of a company.</span></h2><p class="sub">Each belt is a real milestone, from your first token to a public listing. The register of members stays the legal record at every step.</p></div><span class="kana" aria-hidden="true">オビ</span></div>
+  <div class="sh"><span class="num" aria-hidden="true">二</span><div class="sh-main"><p class="kicker mono">How it works for a company</p><h2>Five belts, <span class="red">five habits of a good register.</span></h2><p class="sub">Each belt is a step in keeping your register of members well, in bShares. The register of members stays the legal record at every step.</p></div><span class="kana" aria-hidden="true">オビ</span></div>
   <figure class="band body" style="display:block"><img src="/img/path.webp" alt="A long line of red torii gates receding into blue mist over wet stone at night." width="1600" height="900" loading="lazy" decoding="async"><figcaption class="mono">Fig. 02 · The path</figcaption></figure>
   <ol class="path body">
-    <li><span class="mono">01</span><span class="chip c1" aria-hidden="true"></span><div><h3>White belt · Token launched</h3><p>Your company's token is live on chain, with its own room on bChatX for the people who hold it.</p></div><span class="tag live">Live</span></li>
-    <li><span class="mono">02</span><span class="chip c2" aria-hidden="true"></span><div><h3>Yellow belt · Partnership shares, locked</h3><p>Partners' shares sit in 2-of-2 multisig in each partner's bWalletX, so nothing moves unless both sides sign.</p></div><span class="tag live">Live</span></li>
-    <li><span class="mono">03</span><span class="chip c3" aria-hidden="true"></span><div><h3>Green belt · Registered company</h3><p>Your register of members is kept in bShares and mirrored on chain as tokens, entry for entry. If the two ever differ, the register wins.</p></div><span class="tag test">Testing</span></li>
-    <li><span class="mono">04</span><span class="chip c4" aria-hidden="true"></span><div><h3>Blue belt · Capital raised</h3><p>You raise in BSV and MNEE from verified investors, each allotment recorded on the register and held in the investor's own wallet.</p></div><span class="tag soon">Coming</span></li>
-    <li><span class="mono">05</span><span class="chip c5" aria-hidden="true"></span><div><h3>Black belt · Public listing</h3><p>Your shares are offered to the public through the proper regulated route. $403, our securities protocol on verified identity, is being built for this. Nothing on this page is an offer of shares.</p></div><span class="tag soon">Planned</span></li>
+    <li><span class="mono">01</span><span class="chip c1" aria-hidden="true"></span><div><h3>White belt · Register set up</h3><p>Your register of members is kept in bShares: who holds which shares, entry for entry.</p></div><span class="tag test">Testing</span></li>
+    <li><span class="mono">02</span><span class="chip c2" aria-hidden="true"></span><div><h3>Yellow belt · Mirrored on chain</h3><p>Each entry is mirrored on chain, so the record can be checked later. If the two ever differ, the register wins.</p></div><span class="tag test">Testing</span></li>
+    <li><span class="mono">03</span><span class="chip c3" aria-hidden="true"></span><div><h3>Green belt · Directors approve</h3><p>Nothing goes on the register until the company's directors approve it, as company law requires.</p></div><span class="tag test">Testing</span></li>
+    <li><span class="mono">04</span><span class="chip c4" aria-hidden="true"></span><div><h3>Blue belt · Members see their entry</h3><p>Each member can see their own entry on the register, as a live view in their bWalletX.</p></div><span class="tag soon">Coming</span></li>
+    <li><span class="mono">05</span><span class="chip c5" aria-hidden="true"></span><div><h3>Black belt · A black belt register</h3><p>Every change is kept in order, from the first entry to today, so the register is always up to date and easy to show when it is asked for.</p></div><span class="tag soon">Coming</span></li>
   </ol>
 </div></section>
 
 <section id="join"><div class="wrap">
-  <div class="sh"><span class="num" aria-hidden="true">三</span><div class="sh-main"><p class="kicker mono">Join the Dojo</p><h2>Starting a company? Have a company? <span class="red">Bring it to the Dojo.</span></h2></div><span class="kana" aria-hidden="true">サンカ</span></div>
+  <div class="sh"><span class="num" aria-hidden="true">三</span><div class="sh-main"><p class="kicker mono">Join the Dojo</p><h2>Starting a company? Have a company? <span class="red">Bring its register to the Dojo.</span></h2></div><span class="kana" aria-hidden="true">サンカ</span></div>
   <div class="body joingrid">
     <ol class="path" style="border-top:1px solid var(--line-hi)">
-      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">01</span><div><h3>Form your company</h3><p>Set up the company and its members' register from the start.</p></div></li>
-      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">02</span><div><h3>Keep the register on chain</h3><p>bShares keeps the legal register; a tokenised record follows it.</p></div></li>
-      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">03</span><div><h3>Raise in BSV and MNEE</h3><p>From stakeholders' wallets, with the care securities need. Nothing on this page is an offer.</p></div></li>
-      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">04</span><div><h3>Lock with multisig</h3><p>Holdings sit in 2-of-2 locks, so records only move when both sides sign.</p></div></li>
+      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">01</span><div><h3>Bring your register</h3><p>Who holds which shares today, from the start or from your current records.</p></div></li>
+      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">02</span><div><h3>Keep the register on chain</h3><p>bShares keeps the legal register; a record on chain follows it.</p></div></li>
+      <li style="grid-template-columns:44px minmax(0,1fr)"><span class="mono">03</span><div><h3>Directors approve each entry</h3><p>Every change goes on the register only when the company's directors approve it.</p></div></li>
     </ol>
     <div class="invite">
       <span class="mono">Open the door</span>
@@ -442,14 +443,10 @@ html.hold main *{animation-play-state:paused!important}
 <section id="status"><div class="wrap">
   <div class="sh"><span class="num" aria-hidden="true">四</span><div class="sh-main"><p class="kicker mono">Status</p><h2>What works today, <span class="red">and what is next.</span></h2><p class="sub">Items move to Live when you can use them. We tick them off as they ship.</p></div><span class="kana" aria-hidden="true">ジョウキョウ</span></div>
   <ul class="status body">
-    <li><span class="mono">01</span><span class="tag live">Live</span><p><b>bWalletX.</b> The wallet your shareholders hold in, on web, iPhone, Android, desktop and Chrome. <span class="where"><a href="https://bwalletx.com">bwalletx.com</a></span></p></li>
-    <li><span class="mono">02</span><span class="tag live">Live</span><p><b>Multisig locks.</b> 2-of-2 and multisig locks in bWalletX. <span class="where">bWalletX › Locks</span></p></li>
-    <li><span class="mono">03</span><span class="tag live">Live</span><p><b>Exchange.</b> The bWalletX Exchange for tokens and rooms. Company shares are not listed there. <span class="where">bWalletX › Exchange</span></p></li>
-    <li><span class="mono">04</span><span class="tag test">Testing</span><p><b>Company registers in bShares.</b> The first register, our own company's, is in testing inside bWalletX. <span class="where"><a href="https://bsharesx.com">bsharesx.com</a></span></p></li>
-    <li><span class="mono">05</span><span class="tag soon">Coming</span><p><b>Set up any company's register.</b> Open to other companies.</p></li>
-    <li><span class="mono">06</span><span class="tag soon">Coming</span><p><b>Holdings in shareholders' wallets, locked 2-of-2.</b> The register, the token and the lock joined up.</p></li>
-    <li><span class="mono">07</span><span class="tag soon">Planned</span><p><b>Form a company on chain and raise in BSV and MNEE.</b> From stakeholders' wallets, with the care securities need. No offer is made on this page.</p></li>
-    <li><span class="mono">08</span><span class="tag soon">Planned</span><p><b>$403.</b> Securities-grade access on verified identity.</p></li>
+    <li><span class="mono">01</span><span class="tag live">Live</span><p><b>bWalletX.</b> The wallet bShares runs in, on web, iPhone, Android, desktop and Chrome. <span class="where"><a href="https://bwalletx.com">bwalletx.com</a></span></p></li>
+    <li><span class="mono">02</span><span class="tag test">Testing</span><p><b>Company registers in bShares.</b> The first register, our own company's, is in testing inside bWalletX. <span class="where"><a href="https://bsharesx.com">bsharesx.com</a></span></p></li>
+    <li><span class="mono">03</span><span class="tag soon">Coming</span><p><b>Set up any company's register.</b> Open to other companies.</p></li>
+    <li><span class="mono">04</span><span class="tag soon">Coming</span><p><b>Members see their own entry.</b> A live view of their entry on the register, in their bWalletX.</p></li>
   </ul>
 </div></section>
 
@@ -468,14 +465,13 @@ html.hold main *{animation-play-state:paused!important}
   <div class="wrap foot">
     <a class="brand" href="/" aria-label="bDojoX home"><img src="/logo-lockup.svg" alt="" width="90" height="25" style="height:25px;width:auto"></a>
     <nav aria-label="Footer">
-      <a href="/watch">Watch the film</a>
       <a href="https://bwalletx.com">bWalletX home</a>
       <a href="https://bwalletx.com/privacy">Privacy</a>
       <a href="https://bwalletx.com/terms">Terms</a>
     </nav>
     <span class="mono">By The Bitcoin Corporation Ltd.</span>
   </div>
-  <div class="wrap"><p class="legal">bDojoX is software and help for keeping share registers. It does not offer, sell or recommend any shares or tokens, and makes no promise of returns. BSV holders are stakeholders in the network, not shareholders in us.</p></div>
+  <div class="wrap"><p class="legal">bDojoX is software for keeping share registers. It does not offer, sell or recommend any shares.</p><p class="legal co">bDojoX is run by The Bitcoin Corporation Ltd, registered in England and Wales no. 16735102, Flat 6, 315 Barking Road, London E13 8EE.</p></div>
 </footer>
 <div id="gate" role="dialog" aria-modal="true" aria-labelledby="g-t" aria-describedby="g-d">
   <div class="g-p g-l"></div><div class="g-p g-r"></div>
