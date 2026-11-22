@@ -13,7 +13,10 @@
  */
 import { LOGIN_PROTOCOL, loginMessage, verifySignIn, isIdentityKey, originAllowed, signSession, verifySession, serializeCookie, readCookie } from '@bwalletx/connect/server';
 
-export const COOKIE = 'bwx_session';
+// __Host-: Secure, Path=/, no Domain, so no subdomain or plain-http page can set or shadow it.
+export const COOKIE = '__Host-bwx_session';
+/** The name before 22 Nov 2026: read once by /api/auth/session, then moved to COOKIE. */
+export const OLD_COOKIE = 'bwx_session';
 export const MAX_AGE = 30 * 24 * 3600;
 const LIFETIME_MS = 2 * 60 * 1000;
 const LOOKUP_URL = process.env.BWALLETX_LOOKUP_URL || 'https://bwallet-nine.vercel.app/api/paymail/lookup';
@@ -101,11 +104,35 @@ export async function lookupPaymail(identityKey) {
 }
 
 export const cookieFor = (value, maxAge) => serializeCookie(value, { name: COOKIE, maxAge, secure: siteOrigin().startsWith('https:') });
+export const clearOldCookie = () => serializeCookie('', { name: OLD_COOKIE, maxAge: 0, secure: siteOrigin().startsWith('https:') });
+
+/*
+ * The challenge's one-time ticket cookie (__Host-bwx_t_<nonce>, HttpOnly, 10 min). The challenge is stateless, so
+ * without it the same verify body could be replayed for its 2 minutes to mint more sessions. /verify needs the
+ * cookie (a MAC of the nonce, so it can't be made from the body) and clears it on every attempt.
+ */
+const NONCE_RE = /^[A-Za-z0-9_-]{8,40}\.[a-z0-9]{1,12}\.[A-Za-z0-9_-]{22}$/;
+const ticketName = (nonce) => (typeof nonce === 'string' && NONCE_RE.test(nonce) ? `__Host-bwx_t_${nonce}` : null);
+export async function ticketCookie(nonce, key) {
+  return serializeCookie(await mac(key, `ticket|${nonce}`), { name: ticketName(nonce), maxAge: 600, secure: siteOrigin().startsWith('https:') });
+}
+export async function ticketOk(req, nonce, key) {
+  const name = ticketName(nonce);
+  const got = name && readCookie(req.headers.get('cookie'), name);
+  return !!got && sameText(got, await mac(key, `ticket|${nonce}`));
+}
+export const clearTicket = (nonce) => (ticketName(nonce) ? serializeCookie('', { name: ticketName(nonce), maxAge: 0, secure: siteOrigin().startsWith('https:') }) : null);
 
 export const startSession = (claims, key) => signSession(claims, { secret: key, maxAge: MAX_AGE });
 
+/** The session from COOKIE, else from the old cookie name (`legacy` then holds its token, to move it). */
 export async function readSession(req, key) {
-  return verifySession(readCookie(req.headers.get('cookie'), COOKIE), { secret: key });
+  const cookies = req.headers.get('cookie');
+  const s = await verifySession(readCookie(cookies, COOKIE), { secret: key });
+  if (s) return s;
+  const token = readCookie(cookies, OLD_COOKIE);
+  const old = await verifySession(token, { secret: key });
+  return old ? Object.assign(old, { legacy: token }) : null;
 }
 
 export { isIdentityKey };

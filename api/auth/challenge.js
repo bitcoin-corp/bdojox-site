@@ -1,5 +1,5 @@
 /** POST /api/auth/challenge { identityKey } → a one-time message for the wallet to sign (2 min). */
-import { makeChallenge, isIdentityKey, json, sameOrigin, secret } from '../_bwx.js';
+import { makeChallenge, isIdentityKey, json, sameOrigin, secret, ticketCookie } from '../_bwx.js';
 
 // Unauthenticated route: a light per-instance limit (20 a minute per IP).
 const hits = new Map();
@@ -22,5 +22,6 @@ export async function POST(req) {
   if (limited(ip)) return json({ error: 'Too many tries. Wait a minute.' }, 429);
   const body = await req.json().catch(() => null);
   if (!isIdentityKey(body?.identityKey)) return json({ error: 'That is not a wallet identity key.' }, 400);
-  return json(await makeChallenge(body.identityKey, key));
+  const c = await makeChallenge(body.identityKey, key);
+  return json(c, 200, { 'set-cookie': await ticketCookie(c.nonce, key) });
 }
