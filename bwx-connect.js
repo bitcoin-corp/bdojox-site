@@ -57,12 +57,15 @@
 
   // interactive: the user clicked (pair by QR if no wallet is in this browser). Otherwise only a wallet already in
   // this browser is asked, quietly, so the theme comes back after a reload.
-  async function connect(interactive) {
+  // given: a wallet already in hand (bWalletX's return to this page on a phone, below).
+  async function connect(interactive, given) {
     let modal = null;
     busy = interactive; draw();
     try {
       let wallet;
-      if (interactive) {
+      if (given) {
+        wallet = given;
+      } else if (interactive) {
         modal = C.pairingModal({ title: 'Connect bWalletX' });
         ({ wallet } = await C.connectBwalletX({ pairing: modal }));
       } else {
@@ -76,6 +79,7 @@
       document.dispatchEvent(new CustomEvent('bwalletx:connected', { detail: { identityKey: key } }));
     } catch (e) {
       if (interactive && e && e.code === 'NOT_FOUND') location.href = 'https://bwalletx.com/get';
+      else if (e && e.code === 'RETURNED_IN_ANOTHER_TAB') { /* bWalletX sent the user back to a new tab: it connects there */ }
       else if (interactive && !(e && e.name === 'AbortError')) console.warn('bWalletX connect:', e);
     } finally {
       try { modal && modal.close(); } catch {}
@@ -91,6 +95,14 @@
   }
 
   draw();
-  if (get()) connect(false);
+  // On a phone (@bwalletx/connect 0.9.0), bWalletX returns to this origin's root after Connect with #bwx=… (connect
+  // strips it as it loads). Finish that pairing here, then go back to the page the Connect started on.
+  if (C.hasReturnFragment && C.hasReturnFragment()) {
+    C.resumeReturnedPairing().catch(() => null).then((r) => {
+      if (r && r.page && r.page !== location.origin + location.pathname) { location.replace(r.page); return; }
+      if (r && r.wallet) connect(false, r.wallet);
+      else if (get()) connect(false);
+    });
+  } else if (get()) connect(false);
   else if (!phone && !window.CWI) C.discoverBwalletX(800).then((f) => { if (!f && !key) { noWallet = true; draw(); } }).catch(() => {});
 })();
